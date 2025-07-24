@@ -1,3 +1,4 @@
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import Home from './components/Home';
 import Panel from './components/Panel';
@@ -7,11 +8,14 @@ import ContactPage from './components/ContactPage'; // Add this import
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [view, setView] = useState('home');
   const [authMode, setAuthMode] = useState('login'); // 'login' or 'signup'
+  const location = useLocation();
 
-  // If user is not logged in, show auth pages
+  // If user is not logged in, always redirect to login/signup and reset URL to '/'
   if (!isLoggedIn) {
+    if (location.pathname !== '/') {
+      return <Navigate to="/" replace />;
+    }
     return (
       <div className="auth-app">
         {authMode === 'login' ? (
@@ -29,15 +33,20 @@ const App = () => {
     );
   }
 
-  // Once logged in, show the main application
+  // Once logged in, show the main application with routes
   return (
     <div className="min-h-screen w-screen flex items-center justify-center bg-slate-100">
-      {view === 'home' && <Home setView={setView} />}
-      {view === 'beginner' && <Panel setView={setView} tier="Beginner" />}
-      {view === 'advanced' && <Panel setView={setView} tier="Advanced" />}
-      {view === 'contact' && <ContactPage setView={setView} />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/practice" element={<Panel tier="Beginner" />} />
+        <Route path="/practice/advanced" element={<Panel tier="Advanced" />} />
+        <Route path="/contact" element={<ContactPage />} />
+        {/* Redirect any unknown route to home */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </div>
   );
 };
 
 export default App;
+

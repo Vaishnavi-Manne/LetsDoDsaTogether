@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './ContactPage.css';
+import { useNavigate } from 'react-router-dom';
 
-const ContactPage = ({ setView }) => {
+const ContactPage = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('contact');
   const [formData, setFormData] = useState({
     name: '',
@@ -55,7 +57,7 @@ const ContactPage = ({ setView }) => {
     <div className="contact-page">
       {/* Header with back button */}
       <div className="contact-header">
-        <button className="back-button" onClick={() => setView('home')}>
+        <button className="back-button" onClick={() => navigate('/')}>
           ← Back to Home
         </button>
         <h1>Contact & FAQ</h1>
@@ -63,13 +65,13 @@ const ContactPage = ({ setView }) => {
 
       {/* Tab Navigation */}
       <div className="tab-navigation">
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'contact' ? 'active' : ''}`}
           onClick={() => setActiveTab('contact')}
         >
           Contact Us
         </button>
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'faq' ? 'active' : ''}`}
           onClick={() => setActiveTab('faq')}
         >
@@ -85,7 +87,7 @@ const ContactPage = ({ setView }) => {
               <h2>Get in Touch</h2>
               <p>Have questions about DSA? Need help with your coding journey? We're here to help!</p>
             </div>
-            
+
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
@@ -99,7 +101,7 @@ const ContactPage = ({ setView }) => {
                   placeholder="Enter your full name"
                 />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="email">Email Address</label>
                 <input
@@ -112,7 +114,7 @@ const ContactPage = ({ setView }) => {
                   placeholder="your.email@example.com"
                 />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="message">Message</label>
                 <textarea
@@ -125,7 +127,7 @@ const ContactPage = ({ setView }) => {
                   rows="5"
                 ></textarea>
               </div>
-              
+
               <button type="submit" className="submit-btn">
                 Send Message
               </button>
@@ -139,7 +141,7 @@ const ContactPage = ({ setView }) => {
               <h2>Frequently Asked Questions</h2>
               <p>Find answers to common questions about our DSA learning platform.</p>
             </div>
-            
+
             <div className="faq-list">
               {faqData.map((faq, index) => (
                 <div key={index} className="faq-item">
