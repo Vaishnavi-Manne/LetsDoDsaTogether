@@ -1,5 +1,7 @@
 import CompartmentButton from './CompartmentButton';
 import './Home.css';
+import StudentProfile from './StudentProfile';
+
 
 const Home = ({ setView }) => (
   <div className='containerBgImg'>
@@ -13,10 +15,18 @@ const Home = ({ setView }) => (
         <div className='headText'> <h1 className="text-2xl font-bold tracking-tight">LET'S DO DSA TOGETHER</h1></div>
         <div><img src='public\images\heroSecImg.jpg' alt="" srcSet="" /></div>
       </div>
-      <div className="description">
-        <span>DSA🧠🐦‍🔥</span>
-        <p className="text-sm text-slate-600"> Mastering DSA is like unlocking cheat codes for problem-solving. It's the core of writing clean, efficient, and optimized code—stuff that actually performs under pressure. Whether you're trying to ace coding interviews or build scalable systems, DSA is the ultimate skill flex.</p>
-      </div>
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 p-4">
+  <div className="description md:w-1/2">
+    <span className="text-xl font-semibold">DSA🧠🐦‍🔥</span>
+    <p className="text-sm text-slate-600 mt-2">
+      Mastering DSA is like unlocking cheat codes for problem-solving. It's the core of writing clean, efficient, and optimized code—stuff that actually performs under pressure. Whether you're trying to ace coding interviews or build scalable systems, DSA is the ultimate skill flex.
+    </p>
+  </div>
+
+  <div className="student-profile md:w-1/2">
+    <StudentProfile />
+  </div>
+</div>
 
       <div className="sections">
         <div className="grid grid-rows-3 gap-4 mt-4" id="buttons">

@@ -1,0 +1,43 @@
+.student-profile-card {
+  max-width: 300px;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.goal {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.Level {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.progress {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.Mail {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.Mobile {
+  font-size: 0.95rem;
+  color: #444;
+}
+
