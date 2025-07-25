@@ -1,11 +1,16 @@
 import './Home.css';
+<<<<<<< HEAD
 import { useNavigate, Link } from 'react-router-dom';
+=======
+import Header from './Header';
+>>>>>>> upstream/main
 
 const Home = () => {
   const navigate = useNavigate();
   return (
     <div className="home-container">
       {/* ───────── Hero ───────── */}
+       <Header />
       <header className="home-header">
         <h1 className="main-heading">Let&apos;s Do DSA Together 🚀</h1>
         <p className="sub-heading">
