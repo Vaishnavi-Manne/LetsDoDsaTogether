@@ -4,6 +4,8 @@ import Panel from './components/Panel';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import ContactPage from './components/ContactPage'; // Add this import
+import Profile from './components/Profile'; // update path as needed
+
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,6 +38,8 @@ const App = () => {
       {view === 'beginner' && <Panel setView={setView} tier="Beginner" />}
       {view === 'advanced' && <Panel setView={setView} tier="Advanced" />}
       {view === 'contact' && <ContactPage setView={setView} />}
+      {view === 'profile' && <Profile setView={setView} />}
+
     </div>
   );
 };
