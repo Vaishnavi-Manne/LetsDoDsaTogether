@@ -1,11 +1,14 @@
 import './Panel.css'
-const Panel = ({ tier, setView }) => (
-  <div className="w-screen h-screen  " id="container">
-    <div className="heading">
-      <h2 className="text-xl font-semibold "id='header'>
-        🌱{tier} Topics</h2>
-    <div className="Topiccontainer">
-    
+import { useNavigate } from 'react-router-dom';
+const Panel = ({ tier }) => {
+  const navigate = useNavigate();
+  return (
+    <div className="w-screen h-screen  " id="container">
+      <div className="heading">
+        <h2 className="text-xl font-semibold "id='header'>
+             🌱{tier} Topics</h2>
+          <div className="Topiccontainer">
+            
     <div className="topic1"><div className="topic">
       <h2>1. Time and Space Complexity 🧠</h2>
       <p>Learn how to analyze the performance of your code. Big O notation is the vibe here.</p>
@@ -90,23 +93,21 @@ const Panel = ({ tier, setView }) => (
         <li>GCD/LCM</li>
         <li>Prime numbers</li>
         <li>Bitwise AND/OR/XOR basics</li>
-      </ul>
-    </div></div>
-  </div>
+      </ul>  
+      </div>
+            </div>
+            </div>
+      </div>
+      <div className="section3  ">
+        <button className=" border px-4 py-2 ">Roadmap</button>
+        <button className=" border px-4 py-2 "id='B2'>Discord Channels</button>
+        <button className=" border px-4 py-2 "  >Online + Social Media Resources</button>
+      </div>
+      <button onClick={() => navigate('/')} className=" mt-6 text-sm text-blue-600 underline border-4 ">
+        ← Back
+      </button>
     </div>
-
-   <div className="section3  ">
-   <button className=" border px-4 py-2 ">Roadmap</button>
-   
-    <button className=" border px-4 py-2 "id='B2'>Discord Channels</button>
-   
-    <button className=" border px-4 py-2 "  >Online + Social Media Resources</button>
-   </div>
-    <button onClick={() => setView('home')} className=" mt-6 text-sm text-blue-600 underline border-4 ">
-      ← Back
-    </button>
-   
-  </div>
-);
+  );
+};
 
 export default Panel;
