@@ -1,70 +1,45 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import { Eye, EyeOff, Mail, Lock, Github, Chrome, ArrowRight, Code2, Trophy, Users } from 'lucide-react';
 import './Auth.css';
 
 const Login = ({ setIsLoggedIn, switchToSignup }) => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
-    }
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const validateForm = () => {
     const newErrors = {};
-    
-    if (!formData.email) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
-    
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
-    }
-    
+    if (!formData.email) newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Please enter a valid email';
+    if (!formData.password) newErrors.password = 'Password is required';
+    else if (formData.password.length < 6) newErrors.password = 'Password must be at least 6 characters';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
     if (!validateForm()) return;
-    
     setIsLoading(true);
-    
-    // Simulate API call - replace with your actual authentication logic
     setTimeout(() => {
-      setIsLoggedIn(true); // This will trigger the main app to show
+      setIsLoggedIn(true);
       setIsLoading(false);
     }, 1500);
   };
 
   const handleSocialLogin = (provider) => {
+    console.log('Logging in with', provider); // keep provider used to avoid ESLint warning
     setIsLoading(true);
-    // Simulate social login - replace with actual implementation
     setTimeout(() => {
-      setIsLoggedIn(true); // This will trigger the main app to show
+      setIsLoggedIn(true);
       setIsLoading(false);
     }, 2000);
   };
@@ -75,58 +50,30 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
       <div className="auth-left">
         <div className="brand-content">
           <div className="brand-header">
-            <div className="brand-logo">
-              <Code2 size={40} />
-            </div>
+            <div className="brand-logo"><Code2 size={40} /></div>
             <h1 className="brand-title">LetsDoDsaTogether</h1>
             <p className="brand-subtitle">Master Data Structures & Algorithms</p>
           </div>
-          
+
           <div className="feature-list">
             <div className="feature-item">
-              <div className="feature-icon">
-                <Trophy size={24} />
-              </div>
-              <div>
-                <h3>Track Progress</h3>
-                <p>Monitor your coding journey with detailed analytics</p>
-              </div>
+              <div className="feature-icon"><Trophy size={24} /></div>
+              <div><h3>Track Progress</h3><p>Monitor your coding journey</p></div>
             </div>
-            
             <div className="feature-item">
-              <div className="feature-icon">
-                <Code2 size={24} />
-              </div>
-              <div>
-                <h3>Practice Daily</h3>
-                <p>Solve curated problems to strengthen your skills</p>
-              </div>
+              <div className="feature-icon"><Code2 size={24} /></div>
+              <div><h3>Practice Daily</h3><p>Solve curated problems</p></div>
             </div>
-            
             <div className="feature-item">
-              <div className="feature-icon">
-                <Users size={24} />
-              </div>
-              <div>
-                <h3>Join Community</h3>
-                <p>Connect with fellow developers and learn together</p>
-              </div>
+              <div className="feature-icon"><Users size={24} /></div>
+              <div><h3>Join Community</h3><p>Learn together</p></div>
             </div>
           </div>
-          
+
           <div className="stats">
-            <div className="stat">
-              <span className="stat-number">50K+</span>
-              <span className="stat-label">Problems Solved</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">10K+</span>
-              <span className="stat-label">Active Users</span>
-            </div>
-            <div className="stat">
-              <span className="stat-number">95%</span>
-              <span className="stat-label">Success Rate</span>
-            </div>
+            <div className="stat"><span className="stat-number">50K+</span><span className="stat-label">Problems Solved</span></div>
+            <div className="stat"><span className="stat-number">10K+</span><span className="stat-label">Active Users</span></div>
+            <div className="stat"><span className="stat-number">95%</span><span className="stat-label">Success Rate</span></div>
           </div>
         </div>
       </div>
@@ -149,7 +96,6 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
               <Chrome size={20} />
               Continue with Google
             </button>
-            
             <button 
               className="social-btn github-btn"
               onClick={() => handleSocialLogin('github')}
@@ -160,9 +106,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
             </button>
           </div>
 
-          <div className="divider">
-            <span>or</span>
-          </div>
+          <div className="divider"><span>or</span></div>
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="auth-form">
