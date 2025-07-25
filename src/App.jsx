@@ -12,8 +12,9 @@ const App = () => {
   return (
     <div className="min-h-screen w-screen flex items-center justify-center bg-slate-100">
       {view === 'home' && <Home setView={setView} />}
-      {view === 'beginner' && <Panel setView={setView} tier="Beginner" />}
-      {view === 'advanced' && <Panel setView={setView} tier="Advanced" />}
+{view === 'beginner' && <Panel tier="beginner" setView={setView} />}
+{view === 'advanced' && <Panel tier="advanced" setView={setView} />}
+
     </div>
   );
 };
