@@ -1,9 +1,9 @@
 import './Home.css';
-<<<<<<< HEAD
+
 import { useNavigate, Link } from 'react-router-dom';
-=======
+
 import Header from './Header';
->>>>>>> upstream/main
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -89,18 +89,18 @@ const Home = () => {
             <div className="footer-social">
               <h4>Connect</h4>
               <div className="social-links">
-                <a href="#" aria-label="GitHub">
+                <Link to='/' aria-label="GitHub">
                   <i className="fab fa-github" />
-                </a>
-                <a href="#" aria-label="LinkedIn">
+                </Link>
+                <Link to='/' href="#" aria-label="LinkedIn">
                   <i className="fab fa-linkedin" />
-                </a>
-                <a href="#" aria-label="Twitter">
+                </Link>
+                <Link to='/' aria-label="Twitter">
                   <i className="fab fa-twitter" />
-                </a>
-                <a href="#" aria-label="Discord">
+                </Link>
+                <Link to='/' aria-label="Discord">
                   <i className="fab fa-discord" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
