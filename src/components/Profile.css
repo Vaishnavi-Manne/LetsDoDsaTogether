@@ -1,0 +1,47 @@
+.profile-container {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9ff;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 2rem auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  margin: 1rem auto;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #007bff;
+  border-radius: 5px;
+}
+
+.come-back-button {
+  background-color: #3490dc;
+  color: white;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.come-back-button:hover {
+  background-color: #2779bd;
+}
+
+

@@ -52,6 +52,14 @@ const Home = ({ setView }) => {
           </p>
           <button onClick={() => setView('beginner')}>Start Full Journey</button>
         </div>
+        <div className="card profile">
+  <h2>Profile</h2>
+  <p>
+    Check your progress, bookmarked problems, and completed modules.
+  </p>
+  <button onClick={() => setView('profile')}>Go to Profile</button>
+</div>
+
       </main>
 
       {/* ───────── Enhanced Professional Footer ───────── */}
