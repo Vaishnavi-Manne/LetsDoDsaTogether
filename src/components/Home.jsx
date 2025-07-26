@@ -1,123 +1,62 @@
 import './Home.css';
-import Header from './Header';
+import CompartmentButton from './CompartmentButton';
 
-const Home = ({ setView }) => {
-  return (
-    <div className="home-container">
-      {/* ───────── Hero ───────── */}
-       <Header />
-      <header className="home-header">
-        <h1 className="main-heading">Let&apos;s Do DSA Together 🚀</h1>
-        <p className="sub-heading">
-          Your one-stop guide to mastering Data Structures &amp; Algorithms –
-          from basics to advanced, all in one place.
+const Home = ({ setView }) => (
+  <div className='containerBgImg'>
+    <div className="h-screen w-screen rounded-xl bg-white shadow-md p-10 text-center space-y-6" id="home-container"> 
+
+      {/* ✅ Common Navbar */}
+      <div className="navbar fixed top-0 left-0 w-full z-50 bg-white shadow-md flex justify-between items-center px-6 py-4">
+        <h1 className="text-xl font-bold text-gray-800">LET'S DO DSA</h1>
+        <div className="flex gap-6">
+          <button onClick={() => setView('home')} className="text-gray-700 hover:text-blue-600 font-medium">Home</button>
+          <button onClick={() => setView('beginner')} className="text-gray-700 hover:text-blue-600 font-medium">Beginner</button>
+          <button onClick={() => setView('advanced')} className="text-gray-700 hover:text-blue-600 font-medium">Advance</button>
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <div className="herosection mt-24"> {/* mt-24 to prevent overlap with navbar */}
+        <div className='headText'>
+          <h1 className="text-2xl font-bold tracking-tight">LET'S DO DSA TOGETHER</h1>
+        </div>
+        <div>
+          <img src='/images/heroSecImg.jpg' alt="Hero" />
+        </div>
+      </div>
+
+      {/* Description */}
+      <div className="description">
+        <span className="block text-lg font-semibold text-green-600">DSA🧠🐦‍🔥</span>
+        <p className="text-sm text-slate-600">
+          Mastering DSA is like unlocking cheat codes for problem-solving. It's the core of writing clean, efficient, and optimized code—stuff that actually performs under pressure. Whether you're trying to ace coding interviews or build scalable systems, DSA is the ultimate skill flex.
         </p>
-      </header>
+      </div>
 
-      {/* ───────── How it works ───────── */}
-      <section className="how-it-works">
-        <h2>How it works</h2>
-        <p>
-          Choose a level based on your comfort—Beginner or Advanced. Work
-          through curated problems with explanations, or follow our full
-          roadmap for a structured approach!
-        </p>
-      </section>
-
-      {/* ───────── Level Cards ───────── */}
-      <main className="cards-section">
-        <div className="card beginner">
-          <h2>Beginner</h2>
-          <p>
-            Start your DSA journey with hand-picked beginner-level problems and
-            concepts explained simply.
-          </p>
-          <button onClick={() => setView('beginner')}>Explore Beginner</button>
+      {/* Sections */}
+      <div className="sections">
+        <div className="grid grid-rows-3 gap-4 mt-4" id="buttons">
+          <CompartmentButton label="Beginner's" onClick={() => setView('beginner')} />
+          <CompartmentButton label="Advance" onClick={() => setView('advanced')} />
+          <CompartmentButton label="Both" onClick={() => setView('beginner')} />
         </div>
+      </div>
 
-        <div className="card advanced">
-          <h2>Advanced</h2>
-          <p>
-            Take your skills up a notch. Dive into complex patterns, DP,
-            graphs, and real interview problems.
-          </p>
-          <button onClick={() => setView('advanced')}>Explore Advanced</button>
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white text-center p-6 mt-10">
+        <h2 className="text-lg font-semibold mb-2">Let's Do DSA 🚀</h2>
+        <p className="text-sm mb-2">Your one-stop guide to mastering Data Structures and Algorithms.</p>
+        <div className="flex justify-center gap-6 mb-2">
+          <a href="#home" className="hover:underline">Home</a>
+          <a href="#about" className="hover:underline">About</a>
+          <a href="#contact" className="hover:underline">Contact</a>
+          <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
         </div>
-
-        <div className="card both">
-          <h2>All-in-One</h2>
-          <p>
-            Don&apos;t want to choose? Explore everything in a guided roadmap
-            from beginner to advanced.
-          </p>
-          <button onClick={() => setView('beginner')}>Start Full Journey</button>
-        </div>
-      </main>
-
-      {/* ───────── Enhanced Professional Footer ───────── */}
-      <footer className="site-footer">
-        <div className="footer-content">
-          <div className="footer-main">
-            <div className="footer-brand">
-              <h3 className="brand-title">Let&apos;s Do DSA</h3>
-              <p className="brand-tagline">Master algorithms, ace interviews</p>
-            </div>
-
-            <div className="footer-navigation">
-              <h4>Quick Links</h4>
-              <ul className="footer-links">
-                <li>
-                  <button onClick={() => setView('home')}>
-                    <i className="fas fa-home" /> Home
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => setView('beginner')}>
-                    <i className="fas fa-play-circle" /> Beginner
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => setView('advanced')}>
-                    <i className="fas fa-rocket" /> Advanced
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => setView('contact')}>
-                    <i className="fas fa-envelope" /> Contact
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <div className="footer-social">
-              <h4>Connect</h4>
-              <div className="social-links">
-                <a href="#" aria-label="GitHub">
-                  <i className="fab fa-github" />
-                </a>
-                <a href="#" aria-label="LinkedIn">
-                  <i className="fab fa-linkedin" />
-                </a>
-                <a href="#" aria-label="Twitter">
-                  <i className="fab fa-twitter" />
-                </a>
-                <a href="#" aria-label="Discord">
-                  <i className="fab fa-discord" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="footer-bottom">
-            <div className="footer-copy">
-              <span>Made with <span role="img" aria-label="love">❤️</span> for aspiring developers</span>
-              <span>© {new Date().getFullYear()} Let&apos;s Do DSA. All rights reserved.</span>
-            </div>
-          </div>
-        </div>
+        <p className="text-xs text-gray-400">© 2025 Let's Do DSA. All rights reserved.</p>
       </footer>
+
     </div>
-  );
-};
+  </div>
+);
 
 export default Home;
