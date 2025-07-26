@@ -1,0 +1,53 @@
+/* Theme variables for light and dark mode */
+:root {
+  --background-main: #fff;
+  --background-secondary: #f8fafc;
+  --text-main: #1f2937;
+  --navbar-bg: rgba(255, 255, 255, 0.356);
+  --panel-bg: rgba(75, 207, 244, 0.256);
+  --topic-bg: rgba(144, 228, 53, 0.356);
+  --footer-bg: rgba(0, 0, 0, 0.662);
+}
+
+[data-theme="dark"] {
+  --background-main: #18181b;
+  --background-secondary: #23272f;
+  --text-main: #f3f4f6;
+  --navbar-bg: rgba(30, 41, 59, 0.7);
+  --panel-bg: rgba(30, 41, 59, 0.7);
+  --topic-bg: rgba(34, 197, 94, 0.2);
+  --footer-bg: rgba(30, 41, 59, 0.9);
+}
+
+body,
+html,
+#root {
+  background: var(--background-main) !important;
+  color: var(--text-main) !important;
+}
+
+.bg-main {
+  background: var(--background-main) !important;
+}
+.bg-secondary {
+  background: var(--background-secondary) !important;
+}
+.text-main {
+  color: var(--text-main) !important;
+}
+
+.navbar {
+  background-color: var(--navbar-bg) !important;
+}
+
+footer {
+  background-color: var(--footer-bg) !important;
+}
+
+/* Panel and topic containers */
+.heading {
+  background-color: var(--panel-bg) !important;
+}
+.Topiccontainer {
+  background-color: var(--topic-bg) !important;
+}

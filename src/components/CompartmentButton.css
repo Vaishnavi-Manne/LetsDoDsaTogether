@@ -1,0 +1,22 @@
+/* CompartmentButton.css - custom styles for CompartmentButton */
+
+.compartment-btn {
+  background-color: #f8fafc; /* fallback for light mode */
+  color: #222;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.compartment-btn:hover {
+  background-color: #e2e8f0;
+  color: #111;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+body.dark .compartment-btn {
+  background-color: #23272f;
+  color: #f3f4f6;
+  border: 1px solid #444;
+}
+body.dark .compartment-btn:hover {
+  background-color: #323843;
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}

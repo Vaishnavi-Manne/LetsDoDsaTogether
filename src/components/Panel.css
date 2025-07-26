@@ -1,4 +1,7 @@
-
+/* Set default font for the panel */
+.panel-container {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+}
 
 .heading{
     background-color: rgba(75, 207, 244, 0.256);
@@ -48,4 +51,38 @@ box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.747) ,inset 2px 2px 10px rgba(0, 0, 0, 
   border-color: rgba(240, 248, 255, 0.037);
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.694) ,inset 2px 2px 10px rgba(0, 0, 0, 0.532);
 }
+.footer {
+  background-color: rgba(144, 228, 53, 0.356);
+  
+  padding: 1em 2em;
+  text-align: center;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2), inset 0 2px 5px rgba(255, 255, 255, 0.3);
+  
+}
+
+.back-button {
+  background-color: rgb(0, 140, 255);
+  color: white;
+  padding: 0.6em 1.5em;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Rubik Puddle', cursive;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: rgb(0, 110, 210);
+}
+
+.footer-text {
+  font-size: 0.9em;
+  color: #333;
+  margin-top: 0.5em;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
 

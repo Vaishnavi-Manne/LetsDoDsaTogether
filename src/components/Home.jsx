@@ -1,5 +1,5 @@
-import CompartmentButton from './CompartmentButton';
 import './Home.css';
+import CompartmentButton from './CompartmentButton';
 
 const Home = ({ setView }) => (
   <div className='containerBgImg'>

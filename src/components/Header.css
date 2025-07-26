@@ -1,0 +1,61 @@
+.dsa-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 10px 40px;
+  margin: 1px 5px 35px 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  max-width: 100%;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navbar-right a:hover {
+  color: #0077cc;
+}
+
+@media (max-width: 768px) {
+  .dsa-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .navbar-right {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+}
