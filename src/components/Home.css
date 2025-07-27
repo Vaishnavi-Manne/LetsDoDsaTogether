@@ -1,3 +1,111 @@
+.containerBgImg {
+  width: 100%;
+  height: 100%;
+}
+div#home-container {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(151, 226, 231, 0.466);
+  overflow: hidden;
+}
+div#home-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: url("/images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  transition: filter 0.3s, background-color 0.3s;
+}
+body.dark div#home-container::before {
+  filter: brightness(0.25);
+}
+div#home-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.356);
+  padding: 1em;
+  display: flex;
+  justify-content: space-evenly;
+}
+.herosection {
+  margin-top: 5em;
+
+  /* border: 2px black solid; */
+
+  width: 100%;
+
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+.herosection img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+}
+.headText {
+  width: 50%;
+  align-content: center;
+}
+
+.herosection h1 {
+  font-size: 4rem;
+  font-family: "Rubik Puddle", cursive;
+  font-weight: bold;
+  background-color: #36ea2c53;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 1px rgb(42, 177, 57);
+  text-align: center;
+}
+.description {
+  margin: 3em auto;
+  padding-left: 3em;
+  padding-right: 3em;
+  width: 80%;
+}
+.description span {
+  font-size: 3rem;
+  font-family: "Rubik Puddle", cursive;
+  -webkit-text-stroke: 1px white;
+}
+.description p {
+  font-size: 1.5rem;
+  -webkit-text-stroke: 1px rgba(216, 39, 39, 0.633);
+}
+.sections {
+  padding-left: 3em;
+  padding-right: 3em;
+  justify-items: center;
+}
+#buttons {
+  width: 40%;
+}
+footer {
+  margin-top: 2em;
+  background-color: rgba(0, 0, 0, 0.662);
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-family: "Rubik Puddle", cursive;
+  font-size: 1em;
+}
 /* Background and Layout */
 .home-container {
   min-height: 100vh;

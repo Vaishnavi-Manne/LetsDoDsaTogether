@@ -5,13 +5,15 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import ContactPage from './components/ContactPage';
 import KeyboardShortcuts from './components/KeyboardShortcuts';
+import Header from './components/Header';
+import ThemeToggle from './components/ThemeToggle';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem('isLoggedIn') === 'true';
   });
   const [view, setView] = useState('home');
-  const [authMode, setAuthMode] = useState('login'); // 'login' or 'signup'
+  const [authMode, setAuthMode] = useState('login'); 
 
   useEffect(() => {
     localStorage.setItem('isLoggedIn', isLoggedIn);
@@ -20,13 +22,14 @@ const App = () => {
   if (!isLoggedIn) {
     return (
       <div className="auth-app">
+        <ThemeToggle />
         {authMode === 'login' ? (
-          <Login 
+          <Login
             setIsLoggedIn={setIsLoggedIn}
             switchToSignup={() => setAuthMode('signup')}
           />
         ) : (
-          <Signup 
+          <Signup
             setIsLoggedIn={setIsLoggedIn}
             switchToLogin={() => setAuthMode('login')}
           />
@@ -36,13 +39,21 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen w-screen flex items-center justify-center bg-slate-100">
+    <>
+      {view !== 'home' && (
+        <div className="navbar-wrapper">
+          <Header setView={setView} />
+        </div>
+      )}
+      <ThemeToggle />
       <KeyboardShortcuts setView={setView} setIsLoggedIn={setIsLoggedIn} />
-      {view === 'home' && <Home setView={setView} />}
-      {view === 'beginner' && <Panel setView={setView} tier="Beginner" />}
-      {view === 'advanced' && <Panel setView={setView} tier="Advanced" />}
-      {view === 'contact' && <ContactPage setView={setView} />}
-    </div>
+      <div className="min-h-screen w-screen flex items-center justify-center bg-slate-100">
+        {view === 'home' && <Home setView={setView} />}
+        {view === 'beginner' && <Panel setView={setView} tier="Beginner" />}
+        {view === 'advanced' && <Panel setView={setView} tier="Advanced" />}
+        {view === 'contact' && <ContactPage setView={setView} />}
+      </div>
+    </>
   );
 };
 

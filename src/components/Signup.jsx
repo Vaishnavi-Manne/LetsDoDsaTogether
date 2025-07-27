@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Mail, Lock, User, Github, Chrome, ArrowRight, Code2, Trophy, Users, Check, X } from 'lucide-react';
 import './Auth.css';
+import logo from '../assets/logo.png';
 
 const Signup = ({ setIsLoggedIn, switchToLogin }) => {
   const [formData, setFormData] = useState({
@@ -117,7 +118,7 @@ const Signup = ({ setIsLoggedIn, switchToLogin }) => {
         <div className="brand-content signup-compact">
           <div className="brand-header signup-compact">
             <div className="brand-logo signup-compact">
-              <Code2 size={36} />
+              <img src={logo} alt="LetsDoDSA Logo" style={{ width: 36, height: 36, borderRadius: '50%' }} />
             </div>
             <h1 className="brand-title signup-compact">LetsDoDsaTogether</h1>
             <p className="brand-subtitle signup-compact">Master Data Structures & Algorithms</p>

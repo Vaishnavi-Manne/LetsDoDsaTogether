@@ -1,3 +1,4 @@
+"use client";
 import './Panel.css';
 
 const Panel = ({ tier, setView }) => (
@@ -113,6 +114,10 @@ const Panel = ({ tier, setView }) => (
     >
       ← Back to Home
     </button>
+
+    <footer className="footer mt-4">
+      <p className="footer-text">Made with ❤️ for aspiring developers</p>
+    </footer>
   </div>
 );
 

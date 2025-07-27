@@ -1,10 +1,10 @@
 .dsa-navbar {
-  display: flex;
+    display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background: white;         /* keep white card background */
   padding: 10px 40px;
-  margin: 1px 5px 35px 10px;
+  margin: 1px 5px 35px 10px; /* spacing inside blue wrapper */
   border-radius: 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 95%;
@@ -44,6 +44,15 @@
 
 .navbar-right a:hover {
   color: #0077cc;
+}
+
+.navbar-wrapper {
+  background-color:#d1f3fc;   
+  padding: 10px 0;              
+  width: 100vw;                 
+  box-sizing: border-box;    
+  display: flex;
+  justify-content: center;     
 }
 
 @media (max-width: 768px) {

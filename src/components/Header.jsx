@@ -1,11 +1,12 @@
 import React from 'react';
 import './Header.css'; // styling below
+import logo from '../assets/logo.png';
 
 const Header = () => {
   return (
     <header className="dsa-navbar">
       <div className="navbar-left">
-        <img src="/images/image2.png" alt="LetsDoDSA Logo" />
+        <img src={logo} alt="LetsDoDSA Logo" />
         <span className="brand-name">LetsDoDSA</span>
       </div>
       <nav className="navbar-right">

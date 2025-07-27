@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Mail, Lock, Github, Chrome, ArrowRight, Code2, Trophy, Users } from 'lucide-react';
 import './Auth.css';
+import logo from '../assets/logo.png';
 
 const Login = ({ setIsLoggedIn, switchToSignup }) => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -36,7 +37,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
   };
 
   const handleSocialLogin = (provider) => {
-    console.log('Logging in with', provider); // keep provider used to avoid ESLint warning
+    console.log('Logging in with', provider);
     setIsLoading(true);
     setTimeout(() => {
       setIsLoggedIn(true);
@@ -50,7 +51,9 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
       <div className="auth-left">
         <div className="brand-content">
           <div className="brand-header">
-            <div className="brand-logo"><Code2 size={40} /></div>
+            <div className="brand-logo">
+              <img src={logo} alt="LetsDoDSA Logo" style={{ width: 40, height: 40, borderRadius: '50%' }} />
+            </div>
             <h1 className="brand-title">LetsDoDsaTogether</h1>
             <p className="brand-subtitle">Master Data Structures & Algorithms</p>
           </div>
@@ -58,22 +61,40 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
           <div className="feature-list">
             <div className="feature-item">
               <div className="feature-icon"><Trophy size={24} /></div>
-              <div><h3>Track Progress</h3><p>Monitor your coding journey</p></div>
+              <div>
+                <h3>Track Progress</h3>
+                <p>Monitor your coding journey</p>
+              </div>
             </div>
             <div className="feature-item">
               <div className="feature-icon"><Code2 size={24} /></div>
-              <div><h3>Practice Daily</h3><p>Solve curated problems</p></div>
+              <div>
+                <h3>Practice Daily</h3>
+                <p>Solve curated problems</p>
+              </div>
             </div>
             <div className="feature-item">
               <div className="feature-icon"><Users size={24} /></div>
-              <div><h3>Join Community</h3><p>Learn together</p></div>
+              <div>
+                <h3>Join Community</h3>
+                <p>Learn together</p>
+              </div>
             </div>
           </div>
 
           <div className="stats">
-            <div className="stat"><span className="stat-number">50K+</span><span className="stat-label">Problems Solved</span></div>
-            <div className="stat"><span className="stat-number">10K+</span><span className="stat-label">Active Users</span></div>
-            <div className="stat"><span className="stat-number">95%</span><span className="stat-label">Success Rate</span></div>
+            <div className="stat">
+              <span className="stat-number">50K+</span>
+              <span className="stat-label">Problems Solved</span>
+            </div>
+            <div className="stat">
+              <span className="stat-number">10K+</span>
+              <span className="stat-label">Active Users</span>
+            </div>
+            <div className="stat">
+              <span className="stat-number">95%</span>
+              <span className="stat-label">Success Rate</span>
+            </div>
           </div>
         </div>
       </div>
@@ -88,7 +109,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
 
           {/* Social Login Buttons */}
           <div className="social-buttons">
-            <button 
+            <button
               className="social-btn google-btn"
               onClick={() => handleSocialLogin('google')}
               disabled={isLoading}
@@ -96,7 +117,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
               <Chrome size={20} />
               Continue with Google
             </button>
-            <button 
+            <button
               className="social-btn github-btn"
               onClick={() => handleSocialLogin('github')}
               disabled={isLoading}
@@ -163,8 +184,8 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
               <a href="#" className="forgot-password">Forgot Password?</a>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="submit-btn"
               disabled={isLoading}
             >
@@ -182,8 +203,8 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
           <div className="auth-footer">
             <p>
               Don't have an account?{' '}
-              <button 
-                className="switch-auth" 
+              <button
+                className="switch-auth"
                 onClick={switchToSignup}
                 disabled={isLoading}
               >
