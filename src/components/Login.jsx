@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
-import { Eye, EyeOff, Mail, Lock, Github, Chrome, ArrowRight, Code2, Trophy, Users } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, Github, ArrowRight, Code2, Trophy, Users } from 'lucide-react';
+import { FcGoogle } from 'react-icons/fc';
 import './Auth.css';
 import logo from '../assets/logo.png';
 
@@ -30,30 +31,30 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.email) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email';
     }
-    
+
     if (!formData.password) {
       newErrors.password = 'Password is required';
     } else if (formData.password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsLoading(true);
-    
+
     // Simulate API call - replace with your actual authentication logic
     setTimeout(() => {
       setIsLoggedIn(true); // This will trigger the main app to show
@@ -82,7 +83,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
             <h1 className="brand-title">LetsDoDsaTogether</h1>
             <p className="brand-subtitle">Master Data Structures & Algorithms</p>
           </div>
-          
+
           <div className="feature-list">
             <div className="feature-item">
               <div className="feature-icon">
@@ -93,7 +94,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
                 <p>Monitor your coding journey with detailed analytics</p>
               </div>
             </div>
-            
+
             <div className="feature-item">
               <div className="feature-icon">
                 <Code2 size={24} />
@@ -103,7 +104,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
                 <p>Solve curated problems to strengthen your skills</p>
               </div>
             </div>
-            
+
             <div className="feature-item">
               <div className="feature-icon">
                 <Users size={24} />
@@ -114,7 +115,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
               </div>
             </div>
           </div>
-          
+
           <div className="stats">
             <div className="stat">
               <span className="stat-number">50K+</span>
@@ -142,16 +143,16 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
 
           {/* Social Login Buttons */}
           <div className="social-buttons">
-            <button 
+            <button
               className="social-btn google-btn"
               onClick={() => handleSocialLogin('google')}
               disabled={isLoading}
             >
-              <Chrome size={20} />
+              <FcGoogle size={20} />
               Continue with Google
             </button>
-            
-            <button 
+
+            <button
               className="social-btn github-btn"
               onClick={() => handleSocialLogin('github')}
               disabled={isLoading}
@@ -220,8 +221,8 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
               <a href="#" className="forgot-password">Forgot Password?</a>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="submit-btn"
               disabled={isLoading}
             >
@@ -239,8 +240,8 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
           <div className="auth-footer">
             <p>
               Don't have an account?{' '}
-              <button 
-                className="switch-auth" 
+              <button
+                className="switch-auth"
                 onClick={switchToSignup}
                 disabled={isLoading}
               >
