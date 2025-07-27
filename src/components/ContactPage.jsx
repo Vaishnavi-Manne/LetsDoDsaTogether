@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ContactPage.css';
 
 const ContactPage = ({ setView }) => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('contact');
   const [formData, setFormData] = useState({
     name: '',
@@ -22,6 +24,11 @@ const ContactPage = ({ setView }) => {
     console.log('Form submitted:', formData);
     setFormData({ name: '', email: '', message: '' });
     alert('Message sent successfully!');
+  };
+
+  const handleBackNavigation = () => {
+    setView('home');
+    navigate('/');
   };
 
   const faqData = [
@@ -55,7 +62,7 @@ const ContactPage = ({ setView }) => {
     <div className="contact-page">
       {/* Header with back button */}
       <div className="contact-header">
-        <button className="back-button" onClick={() => setView('home')}>
+        <button className="back-button" onClick={handleBackNavigation}>
           ← Back to Home
         </button>
         <h1>Contact & FAQ</h1>
