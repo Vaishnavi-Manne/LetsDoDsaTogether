@@ -93,7 +93,6 @@ New to open source? Check these out:
 - **WhatsApp**:[@join](https://chat.whatsapp.com/Iy7ybWuY2zA0oZhqq0U5vv)
 - **Discussions**:[@Try to communicate/get ur queries clarified through discussions](https://github.com/Vaishnavi-Manne/LetsDoDsaTogether/discussions)
 - **Issues**: [GitHub Issues](https://github.com/Vaishnavi-Manne/LetsDoDsaTogether/issues)
-- 
 
 ---
 
