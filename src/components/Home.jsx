@@ -1,7 +1,15 @@
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import Header from './Header';
 
 const Home = ({ setView }) => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (route) => {
+    setView(route);
+    navigate(`/${route === 'home' ? '' : route}`);
+  };
+
   return (
     <div className="home-container">
       {/* ───────── Hero ───────── */}
@@ -32,7 +40,7 @@ const Home = ({ setView }) => {
             Start your DSA journey with hand-picked beginner-level problems and
             concepts explained simply.
           </p>
-          <button onClick={() => setView('beginner')}>Explore Beginner</button>
+          <button onClick={() => handleNavigation('beginner')}>Explore Beginner</button>
         </div>
 
         <div className="card advanced">
@@ -41,7 +49,7 @@ const Home = ({ setView }) => {
             Take your skills up a notch. Dive into complex patterns, DP,
             graphs, and real interview problems.
           </p>
-          <button onClick={() => setView('advanced')}>Explore Advanced</button>
+          <button onClick={() => handleNavigation('advanced')}>Explore Advanced</button>
         </div>
 
         <div className="card both">
@@ -50,7 +58,7 @@ const Home = ({ setView }) => {
             Don&apos;t want to choose? Explore everything in a guided roadmap
             from beginner to advanced.
           </p>
-          <button onClick={() => setView('beginner')}>Start Full Journey</button>
+          <button onClick={() => handleNavigation('beginner')}>Start Full Journey</button>
         </div>
       </main>
 
@@ -67,22 +75,22 @@ const Home = ({ setView }) => {
               <h4>Quick Links</h4>
               <ul className="footer-links">
                 <li>
-                  <button onClick={() => setView('home')}>
+                  <button onClick={() => handleNavigation('home')}>
                     <i className="fas fa-home" /> Home
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => setView('beginner')}>
+                  <button onClick={() => handleNavigation('beginner')}>
                     <i className="fas fa-play-circle" /> Beginner
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => setView('advanced')}>
+                  <button onClick={() => handleNavigation('advanced')}>
                     <i className="fas fa-rocket" /> Advanced
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => setView('contact')}>
+                  <button onClick={() => handleNavigation('contact')}>
                     <i className="fas fa-envelope" /> Contact
                   </button>
                 </li>
@@ -92,16 +100,16 @@ const Home = ({ setView }) => {
             <div className="footer-social">
               <h4>Connect</h4>
               <div className="social-links">
-                <a href="#" aria-label="GitHub">
+                <a href="#" aria-label="GitHub" onClick={(e) => { e.preventDefault(); handleNavigation('home'); }}>
                   <i className="fab fa-github" />
                 </a>
-                <a href="#" aria-label="LinkedIn">
+                <a href="#" aria-label="LinkedIn" onClick={(e) => { e.preventDefault(); handleNavigation('home'); }}>
                   <i className="fab fa-linkedin" />
                 </a>
-                <a href="#" aria-label="Twitter">
+                <a href="#" aria-label="Twitter" onClick={(e) => { e.preventDefault(); handleNavigation('home'); }}>
                   <i className="fab fa-twitter" />
                 </a>
-                <a href="#" aria-label="Discord">
+                <a href="#" aria-label="Discord" onClick={(e) => { e.preventDefault(); handleNavigation('home'); }}>
                   <i className="fab fa-discord" />
                 </a>
               </div>
