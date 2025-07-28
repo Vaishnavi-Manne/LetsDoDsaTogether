@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
-import { Eye, EyeOff, Mail, Lock, Github, Chrome, ArrowRight, Code2, Trophy, Users } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, Github, ArrowRight, Code2, Trophy, Users } from 'lucide-react';
+import { FcGoogle } from 'react-icons/fc';
 import './Auth.css';
 import logo from '../assets/logo.png';
 
@@ -18,10 +19,19 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.email) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Please enter a valid email';
-    if (!formData.password) newErrors.password = 'Password is required';
-    else if (formData.password.length < 6) newErrors.password = 'Password must be at least 6 characters';
+
+    if (!formData.email) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email';
+    }
+
+    if (!formData.password) {
+      newErrors.password = 'Password is required';
+    } else if (formData.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -29,7 +39,9 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+
     setIsLoading(true);
+    // Simulate API call - replace with real auth logic
     setTimeout(() => {
       setIsLoggedIn(true);
       setIsLoading(false);
@@ -66,6 +78,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
                 <p>Monitor your coding journey</p>
               </div>
             </div>
+
             <div className="feature-item">
               <div className="feature-icon"><Code2 size={24} /></div>
               <div>
@@ -73,6 +86,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
                 <p>Solve curated problems</p>
               </div>
             </div>
+
             <div className="feature-item">
               <div className="feature-icon"><Users size={24} /></div>
               <div>
@@ -114,7 +128,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
               onClick={() => handleSocialLogin('google')}
               disabled={isLoading}
             >
-              <Chrome size={20} />
+              <FcGoogle size={20} />
               Continue with Google
             </button>
             <button
