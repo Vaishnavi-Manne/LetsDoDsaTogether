@@ -1,45 +1,52 @@
 /* Set default font for the panel */
 .panel-container {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+   */
+  font-family: "Rubik Puddle", "cursive";
+}
+.panel-bg{
+  background-color: #38aac9;
 }
 
-.heading{
-    background-color: rgba(75, 207, 244, 0.256);
-    padding:  1em 3em;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-}
-.heading #header{
-  font-family: 'Rubik Puddle', cursive;
-    font-size: 3em;
-    text-align: center; 
-  -webkit-text-stroke: 1px white; 
-    
-}
-.heading h2{
-    font-family: 'Rubik Puddle', cursive;
-      font-size: 1.5em; 
-        
-  }
-.Topiccontainer{
-background-color: rgba(144, 228, 53, 0.356);
-display: flex;
-gap: 6em;
-padding: 2em;
-
-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.747) ,inset 2px 2px 10px rgba(0, 0, 0, 0.676);
-}
-.section3{
+.heading {
   background-color: rgba(75, 207, 244, 0.256);
- 
+  padding: 1em 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.heading #header {
+  font-family: 'Rubik Puddle', cursive;
+  font-size: 3em;
+  text-align: center;
+  -webkit-text-stroke: 1px white;
+
+}
+
+.heading h2 {
+  font-family: 'Rubik Puddle', cursive;
+  font-size: 1.5em;
+
+}
+
+.Topiccontainer {
+  background-color: rgba(144, 228, 53, 0.356);
+  display: flex;
+  gap: 6em;
+  padding: 2em;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.747), inset 2px 2px 10px rgba(0, 0, 0, 0.676);
+}
+
+.section3 {
+  background-color: rgba(75, 207, 244, 0.256);
   display: flex;
   flex-direction: row;
-  
- justify-content: center;
+  justify-content: center;
 
 }
-.section3 button{
+
+.section3 button {
   background-color: rgb(104, 222, 14);
   font-family: 'Rubik Puddle', cursive;
   font-size: larger;
@@ -49,15 +56,25 @@ box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.747) ,inset 2px 2px 10px rgba(0, 0, 0, 
   width: 30%;
   border-radius: 5px;
   border-color: rgba(240, 248, 255, 0.037);
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.694) ,inset 2px 2px 10px rgba(0, 0, 0, 0.532);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.694), inset 2px 2px 10px rgba(0, 0, 0, 0.532);
 }
+
+.panel-heading {
+  width: 100vw;
+  background-color: #253443bc;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
 .footer {
   background-color: rgba(144, 228, 53, 0.356);
-  
   padding: 1em 2em;
   text-align: center;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2), inset 0 2px 5px rgba(255, 255, 255, 0.3);
-  
+
 }
 
 .back-button {
@@ -85,4 +102,114 @@ box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.747) ,inset 2px 2px 10px rgba(0, 0, 0, 
   font-family: 'Space Grotesk', sans-serif;
 }
 
+.panel-zigzag {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  padding: 2rem;
+  background: #fff;
+  /*min-height: 100vh;*/
+  border-radius: 30px;
+  margin-top: 40px;
+  box-shadow: 2px 2px 10px rgba(21, 21, 21, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.bg-color {
+  background-color:#d1f3fc;   
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.zigzag-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+
+.zigzag-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.level-box {
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  /* background: #000; */
+  border-bottom: 1px solid #2c3e50;
+
+
+}
+
+.level-box h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.level-description {
+  font-size: 0.9rem;
+  /* margin-bottom: 0.5rem; */
+}
+
+.level-points {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.level-points li {
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+.circle-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #2c3e50;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 768px) {
+  .zigzag-row {
+    grid-template-columns: 1fr;
+    margin: 1rem 0;
+  }
+
+  .zigzag-cell {
+    margin: 0.5rem 0;
+  }
+
+  /* Force same order for all rows: Level first, then Icon */
+  .zigzag-row .zigzag-cell.show-level {
+    order: 1;
+  }
+
+  .zigzag-row .zigzag-cell:not(.show-level) {
+    order: 2;
+  }
+
+  .empty {
+    display: none;
+  }
+
+  .circle-icon {
+    margin: 0 auto;
+  }
+
+  .level-box {
+    width: 100%;
+  }
+}
 

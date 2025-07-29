@@ -1,8 +1,8 @@
-import React from 'react';
-import './Header.css'; // styling below
-import logo from '../assets/logo.png';
+import React from "react";
+import "./Header.css";
+import logo from "../assets/logo.png";
 
-const Header = () => {
+const Header = ({ setView }) => {
   return (
     <header className="dsa-navbar">
       <div className="navbar-left">
@@ -10,10 +10,10 @@ const Header = () => {
         <span className="brand-name">LetsDoDSA</span>
       </div>
       <nav className="navbar-right">
-        <a href="#">Home</a>
-        <a href="#">Beginner</a>
-        <a href="#">Advance</a>
-        <a href="#">All-in-one</a>
+        <button onClick={() => setView("home")}>Home</button>
+        <button onClick={() => setView("beginner")}>Beginner</button>
+        <button onClick={() => setView("advanced")}>Advance</button>
+        <button onClick={() => setView("contact")}>Contact</button>
       </nav>
     </header>
   );

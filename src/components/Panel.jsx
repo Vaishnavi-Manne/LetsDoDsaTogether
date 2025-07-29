@@ -1,116 +1,144 @@
-import './Panel.css'
-const Panel = ({ tier, setView }) => (
-  <div className="w-screen h-screen  " id="container">
-    <div className="heading">
-      <h2 className="text-xl font-semibold "id='header'>
-        🌱{tier} Topics</h2>
-    <div className="Topiccontainer">
-    
-    <div className="topic1"><div className="topic">
-      <h2>1. Time and Space Complexity 🧠</h2>
-      <p>Learn how to analyze the performance of your code. Big O notation is the vibe here.</p>
-    </div>
+import topics from "./BeginnerTopics";
+import "./Panel.css";
 
-    <div className="topic">
-      <h2>2. Arrays 🔢</h2>
-      <ul>
-        <li>Reverse an array</li>
-        <li>Find the max/min</li>
-        <li>Kadane's Algorithm (for the brave)</li>
-      </ul>
-    </div>
+const Panel = (setView) => {
+  return (
+    <div className="bg-color">
+      <h2 className="panel-heading">Beginner Topics</h2>
+      <div className="panel-zigzag">
+        {topics.slice(0, 5).map((topic, idx) => (
+          <div
+            key={idx}
+            className={`zigzag-row ${idx % 2 === 0 ? "odd" : "even"}`}
+          >
+            {/* LEFT CELL */}
 
-    <div className="topic">
-      <h2>3. Strings ✂️</h2>
-      <ul>
-        <li>Palindromes</li>
-        <li>Substrings</li>
-        <li>Anagrams</li>
-        <li>String reversal</li>
-      </ul>
-    </div>
+            <div
+              className={`zigzag-cell ${
+                idx % 2 === 0 ? "show-level" : "empty"
+              }`}
+            >
+              {idx % 2 === 0 && (
+                <div className="level-box">
+                  <h3>{topic.title}</h3>
+                  {topic.description && (
+                    <p className="level-description">{topic.description}</p>
+                  )}
+                  {topic.points && (
+                    <ul className="level-points">
+                      {topic.points.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
+            </div>
+            
+            {/* CENTER ICON */}
+            <div className="zigzag-cell">
+              <div className="circle-icon">{topic.icon}</div>
+            </div>
 
-    <div className="topic">
-      <h2>4. Hashing (HashMap/Set) ⚡</h2>
-      <ul>
-        <li>Frequency count</li>
-        <li>Finding duplicates</li>
-        <li>Two Sum problem</li>
-      </ul>
-    </div>
+            {/* RIGHT CELL */}
+            <div
+              className={`zigzag-cell ${
+                idx % 2 !== 0 ? "show-level" : "empty"
+              }`}
+            >
+              {idx % 2 !== 0 && (
+                <div className="level-box">
+                  <h3>{topic.title}</h3>
+                  {topic.description && (
+                    <p className="level-description">{topic.description}</p>
+                  )}
+                  {topic.points && (
+                    <ul className="level-points">
+                      {topic.points.map((point, i) => (
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
 
-    <div className="topic">
-      <h2>5. Recursion & Backtracking 🔁</h2>
-      <ul>
-        <li>Factorial</li>
-        <li>Fibonacci</li>
-        <li>Tower of Hanoi (bonus brain melt)</li>
-      </ul>
-    </div>
-</div>
-    <div className="topic2"><div className="topic">
-      <h2>6. Searching Algorithms 🔍</h2>
-      <ul>
-        <li>Linear Search</li>
-        <li>Binary Search (sorted arrays)</li>
-      </ul>
-    </div>
+      {/* ------Footer-------- */}
+      <footer className="site-footer">
+        <div className="footer-content">
+          <div className="footer-main">
+            <div className="footer-brand">
+              <h3 className="brand-title">Let&apos;s Do DSA</h3>
+              <p className="brand-tagline">Master algorithms, ace interviews</p>
+            </div>
 
-    <div className="topic">
-      <h2>7. Sorting Algorithms 📊</h2>
-      <ul>
-        <li>Bubble Sort</li>
-        <li>Selection Sort</li>
-        <li>Insertion Sort</li>
-        <li><i>(Learn Merge/Quick Sort later)</i></li>
-      </ul>
+            <div className="footer-navigation">
+              <h4>Quick Links</h4>
+              <ul className="footer-links">
+                <li>
+                  <button onClick={() => setView("home")}>
+                    <i className="fas fa-home" /> Home
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => setView("beginner")}>
+                    <i className="fas fa-play-circle" /> Beginner
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => setView("advanced")}>
+                    <i className="fas fa-rocket" /> Advanced
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => setView("contact")}>
+                    <i className="fas fa-envelope" /> Contact
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div className="footer-social">
+              <h4>Connect</h4>
+              <div className="social-links">
+                <a href="#" aria-label="GitHub">
+                  <i className="fab fa-github" />
+                </a>
+                <a href="#" aria-label="LinkedIn">
+                  <i className="fab fa-linkedin" />
+                </a>
+                <a href="#" aria-label="Twitter">
+                  <i className="fab fa-twitter" />
+                </a>
+                <a href="#" aria-label="Discord">
+                  <i className="fab fa-discord" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="footer-bottom">
+            <div className="footer-copy">
+              <span>
+                Made with{" "}
+                <span role="img" aria-label="love">
+                  ❤️
+                </span>{" "}
+                for aspiring developers
+              </span>
+              <span>
+                © {new Date().getFullYear()} Let&apos;s Do DSA. All rights
+                reserved.
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-
-    <div className="topic">
-      <h2>8. Stacks and Queues 🥞</h2>
-      <ul>
-        <li>Valid parentheses</li>
-        <li>Next Greater Element</li>
-        <li>Queue reversal</li>
-      </ul>
-    </div>
-
-    <div className="topic">
-      <h2>9. Linked Lists 🔗</h2>
-      <ul>
-        <li>Traversing</li>
-        <li>Insertion/deletion</li>
-        <li>Reversing a linked list</li>
-      </ul>
-    </div>
-
-    <div className="topic">
-      <h2>10. Basic Math & Bit Manipulation 🔢</h2>
-      <ul>
-        <li>GCD/LCM</li>
-        <li>Prime numbers</li>
-        <li>Bitwise AND/OR/XOR basics</li>
-      </ul>
-    </div></div>
-  </div>
-    </div>
-
-   <div className="section3  ">
-   <button className=" border px-4 py-2 ">Roadmap</button>
-   
-    <button className=" border px-4 py-2 "id='B2'>Discord Channels</button>
-   
-    <button className=" border px-4 py-2 "  >Online + Social Media Resources</button>
-   </div>
-    <footer className="footer">
-  <button onClick={() => setView('home')} className="back-button">
-    ← Back
-  </button>
-  <p className="footer-text">Made with ❤️ for aspiring developers</p>
-</footer>
-
-   
-  </div>
-);
+  );
+};
 
 export default Panel;
