@@ -4,8 +4,10 @@ import { Eye, EyeOff, Mail, Lock, User, Github, ArrowRight, Code2, Trophy, Users
 import { FcGoogle } from 'react-icons/fc';
 import './Auth.css';
 import logo from '../assets/logo.png';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = ({ setIsLoggedIn, switchToLogin }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -91,7 +93,8 @@ const Signup = ({ setIsLoggedIn, switchToLogin }) => {
 
     // Simulate API call
     setTimeout(() => {
-      setIsLoggedIn(true);
+      // setIsLoggedIn(true);
+      navigate('/');
       setIsLoading(false);
     }, 2000);
   };
@@ -100,7 +103,8 @@ const Signup = ({ setIsLoggedIn, switchToLogin }) => {
     setIsLoading(true);
     // Simulate social signup
     setTimeout(() => {
-      setIsLoggedIn(true);
+      // setIsLoggedIn(true);
+      navigate('/');
       setIsLoading(false);
     }, 2000);
   };
@@ -113,7 +117,7 @@ const Signup = ({ setIsLoggedIn, switchToLogin }) => {
   );
 
   return (
-    <div className="auth-container signup-optimized">
+    <div className="auth-container signup-optimized pt-20">
       {/* Left Side - Branding */}
       <div className="auth-left">
         <div className="brand-content signup-compact">
@@ -346,7 +350,9 @@ const Signup = ({ setIsLoggedIn, switchToLogin }) => {
                 onClick={switchToLogin}
                 disabled={isLoading}
               >
-                Sign in here
+                <Link to="/auth/login">
+                  login
+                </Link>
               </button>
             </p>
           </div>

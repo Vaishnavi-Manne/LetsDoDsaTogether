@@ -193,3 +193,15 @@ body.dark .submit-btn:hover {
 body.dark .error-message {
   color: #f87171 !important;
 }
+
+/* css for about page */
+body.dark .about{
+  background: #eaeaec !important;
+  color: #070707 !important;
+}
+body.dark .toggle{
+  color: #008b35 !important;
+}
+body.dark .links{
+  color: #1723cc !important;
+}

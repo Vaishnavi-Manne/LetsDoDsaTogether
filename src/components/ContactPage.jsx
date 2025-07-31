@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ContactPage.css';
+import { Link } from 'react-router-dom';
 
 const ContactPage = ({ setView }) => {
   const [activeTab, setActiveTab] = useState('contact');
@@ -52,12 +53,15 @@ const ContactPage = ({ setView }) => {
   };
 
   return (
-    <div className="contact-page">
+    <div className="contact-page pt-28">
       {/* Header with back button */}
       <div className="contact-header">
-        <button className="back-button" onClick={() => setView('home')}>
+        <Link to={"/"}>
+        <button className="back-button"
+         >
           ← Back to Home
         </button>
+        </Link>
         <h1>Contact & FAQ</h1>
       </div>
 
