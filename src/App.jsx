@@ -9,6 +9,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AuthPage from './pages/AuthPage';
 import MainLayout from './components/MainLayout';
 import HomePage from './pages/HomePage';
+import Profile from './pages/ProfilePage'; // adjust path if needed
+
 
 const App = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -73,6 +75,10 @@ const App = () => {
           { path: "login", element: <Login /> },
           { path: "signup", element: <Signup /> }
         ]
+      },
+      {
+       path: "profile",
+       element: <Profile />,
       }
     ],
   },
