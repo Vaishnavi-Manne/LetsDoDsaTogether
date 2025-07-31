@@ -1,99 +1,66 @@
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './components/Home';
 import Panel from './components/Panel';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import ContactPage from './components/ContactPage';
 import Aboutpage from './components/About/Aboutpage';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AuthPage from './pages/AuthPage';
 import MainLayout from './components/MainLayout';
 import HomePage from './pages/HomePage';
+import KeyboardShortcuts from './components/KeyboardShortcuts';
+import Header from './components/Header';
+import ThemeToggle from './components/ThemeToggle';
 
 const App = () => {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [view, setView] = useState('home');
-  // const [authMode, setAuthMode] = useState('login'); 
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return localStorage.getItem('isLoggedIn') === 'true';
+  });
 
-
-  // auth setup will be done through backened and integrated later using rtk query
-
-  // If user is not logged in, show auth pages
-  // if (!isLoggedIn) {
-  //   return (
-  //     <div className="auth-app">
-  //       <ThemeToggle />
-  //       {authMode === 'login' ? (
-  //         <Login
-  //           setIsLoggedIn={setIsLoggedIn}
-  //           switchToSignup={() => setAuthMode('signup')}
-  //         />
-  //       ) : (
-  //         <Signup
-  //           setIsLoggedIn={setIsLoggedIn}
-  //           switchToLogin={() => setAuthMode('login')}
-  //         />
-  //       )}
-  //     </div>
-  //   );
-  // }
+  useEffect(() => {
+    localStorage.setItem('isLoggedIn', isLoggedIn);
+  }, [isLoggedIn]);
 
   const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      {
-        index: true,
-        element: (
-          <>
-            <HomePage />
-          </>
-        ),
-      },
-      {
-        path: "about",
-        element: <Aboutpage />,
-      },
-      {
-        path: "contact",
-        element: <ContactPage/>,
-      },
-      {
-        path: ":level",
-        element: <Panel/>,
-      },
-      {
-        path: "auth",
-        element: (
-          <AuthPage/>
-        ),
-        children: [
-          { index: true, element: <Login /> },
-          { path: "login", element: <Login /> },
-          { path: "signup", element: <Signup /> }
-        ]
-      }
-    ],
-  },
-]);
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+        {
+          path: "about",
+          element: <Aboutpage />,
+        },
+        {
+          path: "contact",
+          element: <ContactPage />,
+        },
+        {
+          path: ":level",
+          element: <Panel />,
+        },
+        {
+          path: "auth",
+          element: <AuthPage />,
+          children: [
+            { index: true, element: <Login setIsLoggedIn={setIsLoggedIn} /> },
+            { path: "login", element: <Login setIsLoggedIn={setIsLoggedIn} /> },
+            { path: "signup", element: <Signup setIsLoggedIn={setIsLoggedIn} /> },
+          ],
+        },
+      ],
+    },
+  ]);
+
   return (
     <>
-      {/* {view !== 'home' && (
-        <div className="navbar-wrapper">
-          <Header setView={setView} />
-        </div>
-      )}
       <ThemeToggle />
-      <div className="min-h-screen w-screen flex items-center justify-center bg-slate-100">
-        {view === 'home' && <Home setView={setView} />}
-        {view === 'beginner' && <Panel setView={setView} tier="Beginner" />}
-        {view === 'advanced' && <Panel setView={setView} tier="Advanced" />}
-        {view === 'contact' && <ContactPage setView={setView} />}
-        {view === 'about' && <Aboutpage setView={setView} />}
-      </div> */}
-      {/* <Navbar/>
-      <Aboutpage/> */}
+      <KeyboardShortcuts setIsLoggedIn={setIsLoggedIn} />
+      <Header />
       <main>
         <RouterProvider router={appRouter} />
       </main>
