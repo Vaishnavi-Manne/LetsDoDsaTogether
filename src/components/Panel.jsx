@@ -108,7 +108,9 @@ const Panel = () => {
     </div>
 
     <div className="section3  ">
-      <button className=" border px-4 py-2 ">Roadmap</button>
+      <a
+      href={`/${level}/all-in-one`}
+      className=" border px-4 py-2 ">Roadmap</a>
 
       <button className=" border px-4 py-2 " id="B2">
         Discord Channels
