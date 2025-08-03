@@ -108,9 +108,9 @@ const Panel = () => {
     </div>
 
     <div className="section3  ">
-      <a
-      href={`/${level}/all-in-one`}
-      className=" border px-4 py-2 ">Roadmap</a>
+     <button> <a
+      href={`/${level}/roadmap`}
+     className="border px-4 py-2 no-underline rounded bg-green-500 text-white hover:bg-green-600 transition" id="B2">Roadmap</a> </button>
 
       <button className=" border px-4 py-2 " id="B2">
         Discord Channels
@@ -124,7 +124,7 @@ const Panel = () => {
       <button
         // onClick={() => setView('home')}
         onClick={() => window.history.back()}
-        className="back-button"
+        className="back-button w-full"
       >
         ← Back
       </button>
