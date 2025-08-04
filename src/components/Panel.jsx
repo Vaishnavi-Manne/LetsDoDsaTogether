@@ -106,11 +106,19 @@ const Panel = () => {
         </div>
       </div>
 
-      <div className="section3 mt-4 flex flex-wrap gap-2">
-        <button className="border px-4 py-2">Roadmap</button>
-        <button className="border px-4 py-2" id="B2">Discord Channels</button>
-        <button className="border px-4 py-2">Online + Social Media Resources</button>
-      </div>
+ <div className="section3  ">
+      <a
+      href={`/${level}/all-in-one`}
+      className=" border px-4 py-2 ">Roadmap</a>
+
+      <button className=" border px-4 py-2 " id="B2">
+        Discord Channels
+      </button>
+
+      <button className=" border px-4 py-2 ">
+        Online + Social Media Resources
+      </button>
+    </div>
 
       <footer className="footer mt-4">
         <button
