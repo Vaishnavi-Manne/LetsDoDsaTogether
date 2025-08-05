@@ -98,7 +98,7 @@ New to open source? Check these out:
 ## 📞 Contact
 
 - **PA**: [Vaishnavi-Manne](https://discord.gg/sP8DmnMh)
-- **Mentors**:[Nikhil Deshmukh](https://www.linkedin.com/in/nikhil-d-deshmukh/) || [Nouman khan](https://www.linkedin.com/in/nouman-khan-95923a256/)
+- **Mentors**:[Nikhil Deshmukh](https://www.linkedin.com/in/nikhil-d-deshmukh/) ||[Nouman khan](https://www.linkedin.com/in/nouman-khan-95923a256/)
 - **Discord**:[Join This](https://chat.whatsapp.com/Iy7ybWuY2zA0oZhqq0U5vv)
 - **Discussions**:[Try to communicate/get ur queries clarified through github discussion](https://github.com/Vaishnavi-Manne/LetsDoDsaTogether/discussions)
 - **Issues**: [GitHub Issues](https://github.com/Vaishnavi-Manne/LetsDoDsaTogether/issues)
