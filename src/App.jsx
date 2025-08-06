@@ -12,6 +12,7 @@ import HomePage from './pages/HomePage';
 import KeyboardShortcuts from './components/KeyboardShortcuts';
 import Header from './components/Header';
 import ThemeToggle from './components/ThemeToggle';
+import { AlgorithmVisualizer } from './components/AlgorithmVisualizer';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
@@ -38,6 +39,10 @@ const App = () => {
         {
           path: "contact",
           element: <ContactPage />,
+        },
+        {
+          path: "visualizer",
+          element: <AlgorithmVisualizer />,
         },
         {
           path: ":level",
