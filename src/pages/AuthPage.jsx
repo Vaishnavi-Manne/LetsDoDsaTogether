@@ -1,6 +1,5 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Login from '../components/Login'
 
 const AuthPage = () => {
   return (
@@ -11,3 +10,4 @@ const AuthPage = () => {
 }
 
 export default AuthPage
+

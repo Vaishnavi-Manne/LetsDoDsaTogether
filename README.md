@@ -39,41 +39,50 @@ Built using:
 - Git
 
 
-
 ## 🙋‍♀ How to Contribute
-✨ Contributions are super welcome! Here's how:
 
 ✨ Contributions are super welcome! Here's how:
 
-⭐ Star this repo to show your support
+1. Fork the repository.
 
-Fork the repository
+2. Clone your fork:
 
-Clone your fork:
+```bash
+git clone "https://github.com/your-username/LetsDoDSATogether.git"
+```
 
-git clone https://github.com/your-username/LetsDoDSATogether.git<br>
+3. Create a new branch:
 
-Create a new branch:<br>
-git checkout -b feature/your-feature-name<br>
+```bash
+git checkout -b feature/your-feature-name
+```
 
-Make your changes and test locally.
+4. Make your changes and test locally.
 
-Commit with a clear message<br>
+5. Commit with a clear message.
 
-git commit -m "feat: Add XYZ feature".<br>
+```bash
+git commit -m "feat: Add XYZ feature"
+```
 
-Push and create a Pull Request 🚀
+6. Push and create a Pull Request.
 
 ## 🔧 Installation
-git clone https://github.com/yourusername/LetsDoDSATogether.git<br>
+```bash
+git clone "https://github.com/yourusername/LetsDoDSATogether.git"
 
 cd LetsDoDSATogether
+```
 
 ### Install dependencies
+```bash
 npm install
+```
 
 ### Start the dev server
-npm run dev 
+```bash
+npm run dev
+``` 
 ## 📄 License
 This project is licensed under the MIT License.
 
@@ -88,15 +97,16 @@ New to open source? Check these out:
 
 ## 📞 Contact
 
-- **PA**: [@Vaishnavi-Manne](https://discord.gg/sP8DmnMh)
-- **Mentors**:[@Amrit&Somyaa](https://github.com/Vaishnavi-Manne)
-- **WhatsApp**:[@join](https://chat.whatsapp.com/Iy7ybWuY2zA0oZhqq0U5vv)
-- **Discussions**:[@Try to communicate/get ur queries clarified through discussions](https://github.com/Vaishnavi-Manne/LetsDoDsaTogether/discussions)
+- **PA**: [Vaishnavi-Manne](https://discord.gg/sP8DmnMh)
+- **Mentors**:[Nikhil Deshmukh](https://www.linkedin.com/in/nikhil-d-deshmukh/) ||[Nouman khan](https://www.linkedin.com/in/nouman-khan-95923a256/)
+- **Discord**:[Join This](https://chat.whatsapp.com/Iy7ybWuY2zA0oZhqq0U5vv)
+- **Discussions**:[Try to communicate/get ur queries clarified through github discussion](https://github.com/Vaishnavi-Manne/LetsDoDsaTogether/discussions)
 - **Issues**: [GitHub Issues](https://github.com/Vaishnavi-Manne/LetsDoDsaTogether/issues)
-- 
 
 ---
 
 **Happy Contributing! 🎉**
 
 *This project is part of learning open-source contribution. Every contribution, no matter how small, is valued and appreciated!*
+
+⭐ Star this repo to show your support

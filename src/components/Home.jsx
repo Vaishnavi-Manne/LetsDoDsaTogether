@@ -21,7 +21,7 @@ const Home = () => {
       </header>
 
       {/* ───────── How it works ───────── */}
-      <section className="how-it-works">
+      <section className=" how-it-works">
         <h2>How it works</h2>
         <p>
           Choose a level based on your comfort—Beginner or Advanced. Work
