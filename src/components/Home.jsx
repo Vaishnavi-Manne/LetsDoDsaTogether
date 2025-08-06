@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import {toast} from "sonner";
 
-const Home = ({ setView }) => {
+const Home = () => {
   const navigate = useNavigate();
   const handleBeginnerClick = (level) => {
     navigate(`/${level}`);
@@ -38,7 +38,7 @@ const Home = ({ setView }) => {
             Start your DSA journey with hand-picked beginner-level problems and
             concepts explained simply.
           </p>
-          <button onClick={() => handleBeginnerClick('Begineer')}>Explore Beginner</button>
+          <button onClick={() => handleBeginnerClick('Beginner')}>Explore Beginner</button>
         </div>
 
         <div className="card advanced">

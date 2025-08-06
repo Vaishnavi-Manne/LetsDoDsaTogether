@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './ContactPage.css';
 import { Link } from 'react-router-dom';
 
-const ContactPage = ({ setView }) => {
+const ContactPage = () => {
   const [activeTab, setActiveTab] = useState('contact');
   const [formData, setFormData] = useState({
     name: '',
@@ -20,7 +20,7 @@ const ContactPage = ({ setView }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    // Form submitted successfully
     setFormData({ name: '', email: '', message: '' });
     alert('Message sent successfully!');
   };
