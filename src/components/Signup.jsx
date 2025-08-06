@@ -6,7 +6,7 @@ import './Auth.css';
 import logo from '../assets/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Signup = ({ setIsLoggedIn, switchToLogin }) => {
+const Signup = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
@@ -190,7 +190,7 @@ const Signup = ({ setIsLoggedIn, switchToLogin }) => {
           <div className="social-buttons signup-row">
             <button
               className="social-btn google-btn"
-              onClick={() => handleSocialLogin('google')}
+              onClick={() => handleSocialSignup('google')}
               disabled={isLoading}
             >
               <FcGoogle size={20} />
@@ -345,15 +345,9 @@ const Signup = ({ setIsLoggedIn, switchToLogin }) => {
           <div className="auth-footer">
             <p>
               Already have an account?{' '}
-              <button
-                className="switch-auth"
-                onClick={switchToLogin}
-                disabled={isLoading}
-              >
-                <Link to="/auth/login">
-                  login
-                </Link>
-              </button>
+              <Link to="/auth/login" className="switch-auth">
+                login
+              </Link>
             </p>
           </div>
         </div>

@@ -1,4 +1,6 @@
 import "../Home.css";
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <div>
@@ -14,24 +16,24 @@ const Footer = () => {
               <h4>Quick Links</h4>
               <ul className="footer-links">
                 <li>
-                  <button onClick={() => setView('home')}>
+                  <Link to="/">
                     <i className="fas fa-home" /> Home
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => setView('beginner')}>
+                  <Link to="/Beginner">
                     <i className="fas fa-play-circle" /> Beginner
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => setView('advanced')}>
+                  <Link to="/Advanced">
                     <i className="fas fa-rocket" /> Advanced
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button onClick={() => setView('contact')}>
+                  <Link to="/contact">
                     <i className="fas fa-envelope" /> Contact
-                  </button>
+                  </Link>
                 </li>
               </ul>
             </div>
