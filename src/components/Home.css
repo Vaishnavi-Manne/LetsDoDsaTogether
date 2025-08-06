@@ -97,7 +97,7 @@ div#home-container > * {
   width: 40%;
 }
 footer {
-  margin-top: 2em;
+  /* margin-top: 2em; */
   background-color: rgba(0, 0, 0, 0.662);
   padding: 2em;
   display: flex;
@@ -220,7 +220,7 @@ footer {
 }
 /* ───────── Stylish Footer ───────── */
 .site-footer{
-  margin-top:4rem;
+  /* margin-top:4rem; */
   background:linear-gradient(135deg,#4f8cff 0%,#6b73ff 100%);
   color:#fff;
   padding:2.2rem 1.5rem 1rem;
@@ -289,7 +289,7 @@ footer {
   width: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  margin-top: auto;
+  /* margin-top: auto; */
   padding: 2.5rem 0 1rem;
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -450,7 +450,7 @@ body,
   width: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  margin-top: 1.5rem; /* Reduced margin to start closer to content */
+  /* margin-top: 1.5rem;Reduced margin to start closer to content */
   padding: 2rem 0 0.5rem; /* Reduced bottom padding */
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
   position: relative;
