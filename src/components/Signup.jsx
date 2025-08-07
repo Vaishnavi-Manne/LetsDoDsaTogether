@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Mail, Lock, User, Github, ArrowRight, Code2, Trophy, Users, Check, X } from 'lucide-react';
 import { FcGoogle } from 'react-icons/fc';
-import './Auth.css';
+// import './Auth.css';
 import logo from '../assets/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 
