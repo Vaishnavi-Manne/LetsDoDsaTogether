@@ -41,7 +41,7 @@ div#home-container > * {
   justify-content: space-evenly;
 }
 .herosection {
-  margin-top: 5em;
+  margin-top: 0;
 
   /* border: 2px black solid; */
 

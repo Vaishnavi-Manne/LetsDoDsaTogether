@@ -9,10 +9,10 @@ const Home = ({ setView }) => {
     toast.success(`Master the ${level} level questions with our comprehensive guide!`);
   };
   return (
-    <div className="home-container mt-10">
+    <div className="home-container ">
       {/* ───────── Hero ───────── */}
        {/* <Header /> */}
-      <header className="home-header">
+      <header className="home-header ">
         <h1 className="main-heading">Let&apos;s Do DSA Together 🚀</h1>
         <p className="sub-heading">
           Your one-stop guide to mastering Data Structures &amp; Algorithms –
