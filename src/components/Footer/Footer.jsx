@@ -1,5 +1,8 @@
 import "../Home.css";
+import {  useNavigate } from "react-router-dom";
+
 const Footer = () => {
+   const navigate = useNavigate();
   return (
     <div>
         <footer className="site-footer">
@@ -14,22 +17,22 @@ const Footer = () => {
               <h4>Quick Links</h4>
               <ul className="footer-links">
                 <li>
-                  <button onClick={() => setView('home')}>
+                  <button onClick={() =>  navigate("/")}>
                     <i className="fas fa-home" /> Home
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => setView('beginner')}>
+                  <button onClick={() =>  navigate("/Beginner")}>
                     <i className="fas fa-play-circle" /> Beginner
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => setView('advanced')}>
+                  <button onClick={() =>  navigate("/advanced")}>
                     <i className="fas fa-rocket" /> Advanced
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => setView('contact')}>
+                  <button onClick={() =>  navigate("/contact")}>
                     <i className="fas fa-envelope" /> Contact
                   </button>
                 </li>
