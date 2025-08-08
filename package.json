@@ -14,10 +14,17 @@
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@fortawesome/react-fontawesome": "^0.2.3",
+
+    "@google/generative-ai": "^0.24.1",
+    "@mui/icons-material": "^7.2.0",
+    "@mui/material": "^7.2.0",
+    "@tailwindcss/vite": "^4.1.11",
+
     "@reduxjs/toolkit": "^2.8.2",
     "brace": "^0.11.1",
     "chart.js": "^4.5.0",
     "d3": "^7.9.0",
+
     "framer-motion": "^12.23.7",
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
