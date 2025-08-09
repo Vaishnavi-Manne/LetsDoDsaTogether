@@ -76,7 +76,7 @@ const Login = ({ setIsLoggedIn, switchToSignup }) => {
   };
 
   return (
-    <div className="auth-container pt-20">
+    <div className="auth-container pt-[90px]">
       {/* Left Side - Branding */}
       <div className="auth-left">
         <div className="brand-content">

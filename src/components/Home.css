@@ -224,8 +224,6 @@ footer {
   background:linear-gradient(135deg,#4f8cff 0%,#6b73ff 100%);
   color:#fff;
   padding:2.2rem 1.5rem 1rem;
-  border-top-left-radius:1.2rem;
-  border-top-right-radius:1.2rem;
   box-shadow:0 -6px 16px rgba(0,0,0,.12);
   text-align:center;
 }
@@ -329,7 +327,6 @@ footer {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #fff;
 }
 
 .footer-links {
@@ -492,7 +489,6 @@ body,
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #fff;
 }
 
 .footer-links {
