@@ -166,6 +166,17 @@ const Login = ({ setIsLoggedIn }) => {
             <div className="absolute top-0 left-0 w-64 h-64 bg-purple-300 rounded-full filter blur-3xl"></div>
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-indigo-300 rounded-full filter blur-3xl"></div>
             <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-pink-300 rounded-full filter blur-3xl"></div>
+    <div className="auth-container pt-[90px]">
+      {/* Left Side - Branding */}
+      <div className="auth-left">
+        <div className="brand-content">
+          <div className="brand-header">
+            <div className="brand-logo">
+              <img src={logo} alt="LetsDoDSA Logo" style={{ width: 40, height: 40, borderRadius: '50%' }} />
+            </div>
+            <h1 className="brand-title">LetsDoDsaTogether</h1>
+            <p className="brand-subtitle">Master Data Structures & Algorithms</p>
+
           </div>
 
           <div className="relative z-10 h-full flex flex-col">
