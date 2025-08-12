@@ -4,7 +4,7 @@ import { CgDetailsMore } from "react-icons/cg";
 import { PiNumberSquareThreeBold, PiIntersectThreeBold } from "react-icons/pi";
 import { Link, useNavigate } from "react-router-dom";
 import { LiaWpbeginner } from "react-icons/lia";
-import { Contact } from "lucide-react";
+import { Contact, Eye } from "lucide-react";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -129,6 +129,26 @@ const Navbar = () => {
                 className="absolute left-1/2 -bottom-1 w-0 h-1 bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-500
                         dark:from-purple-300 dark:via-blue-400 dark:to-indigo-400 rounded-full
                         transition-all duration-500 group-hover:w-full group-hover:left-0"
+                aria-hidden="true"
+              />
+            </a>
+            <a
+              href="visualizer"
+              onClick={() => {
+                if (true) {
+                  navigate("/visualizer");
+                }
+              }}
+              className="group relative inline-block text-black dark:text-purple-500 hover:text-purple-700 dark:hover:text-purple-700 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-sm transform hover:scale-105"
+            >
+              <span className="flex items-center font-extrabold gap-2">
+                <Eye />
+                Visualizer
+              </span>
+              <span
+                className="absolute left-1/2 -bottom-1 w-0 h-1 bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-500
+                            dark:from-purple-300 dark:via-blue-400 dark:to-indigo-400 rounded-full
+                            transition-all duration-500 group-hover:w-full group-hover:left-0"
                 aria-hidden="true"
               />
             </a>
@@ -313,6 +333,16 @@ const Navbar = () => {
                   All-in-one
                 </span>
               </a>
+              <Link
+                to="/visualizer"
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 text-white hover:bg-purple-600 dark:hover:bg-gray-700 hover:text-purple-100 dark:hover:text-gray-100 rounded-md transition-colors duration-200 text-lg font-medium"
+              >
+                <span className="flex items-center font-extrabold gap-2">
+                  <Eye />
+                  Visualizer
+                </span>
+              </Link>
             </div>
           </div>
         </div>

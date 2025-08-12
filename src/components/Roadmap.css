@@ -1,0 +1,46 @@
+.roadmap-container {
+  padding: 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  min-height: 100vh;
+  background-color: #f0fdf4;
+}
+
+.roadmap-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.roadmap-section {
+  background: #d9fdd3;
+  padding: 1rem 2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.roadmap-section h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.roadmap-section a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.roadmap-section a:hover {
+  text-decoration: underline;
+}
+
+.back-btn {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.75rem 1.5rem;
+  background-color: #0a84ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}

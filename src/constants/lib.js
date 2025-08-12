@@ -53,4 +53,10 @@ export const allContributors = [
       avatar: "https://avatars.githubusercontent.com/u/114748865?v=4",
       github: "https://github.com/akathedeveloper",
     },
+    {
+      name: "Kartikeya Gupta",
+      linkedin: "https://linkedin.com/in/kartikeyagupta05",
+      avatar: "https://avatars.githubusercontent.com/u/151367534?s=400&u=16643723452f1a76bc9064e659dbe0e084f861c0&v=4",
+      github: "https://github.com/KartikeyaGupta05",
+    },
   ];

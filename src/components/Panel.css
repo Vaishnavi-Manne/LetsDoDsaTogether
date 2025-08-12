@@ -1,63 +1,79 @@
-/* Set default font for the panel */
+/* Base styling */
 .panel-container {
   font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.heading{
-    background-color: rgba(75, 207, 244, 0.256);
-    padding:  1em 3em;
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-}
-.heading #header{
-  font-family: 'Rubik Puddle', cursive;
-    font-size: 3em;
-    text-align: center; 
-  -webkit-text-stroke: 1px white; 
-    
-}
-.heading h2{
-    font-family: 'Rubik Puddle', cursive;
-      font-size: 1.5em; 
-        
-  }
-.Topiccontainer{
-background-color: rgba(144, 228, 53, 0.356);
-display: flex;
-gap: 6em;
-padding: 2em;
-
-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.747) ,inset 2px 2px 10px rgba(0, 0, 0, 0.676);
-}
-.section3{
+/* Heading */
+.heading {
   background-color: rgba(75, 207, 244, 0.256);
- 
+  padding: 1em 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.heading #header {
+  font-family: 'Rubik Puddle', cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  -webkit-text-stroke: 1px white;
+}
+
+.heading h2 {
+  font-family: 'Rubik Puddle', cursive;
+  font-size: 1.25rem;
+}
+
+/* Topic Container */
+.Topiccontainer {
+  background-color: rgba(144, 228, 53, 0.356);
+  display: flex;
+  gap: 2rem;
+  padding: 2em;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.747), inset 2px 2px 10px rgba(0, 0, 0, 0.676);
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  justify-content: center;
+}
+
+.topic1, .topic2 {
+  flex: 1 1 300px; /* responsive flex children */
+  max-width: 500px;
+}
+
+.topic {
+  margin-bottom: 1.5rem;
+}
+
+/* Section3 Buttons */
+.section3 {
+  background-color: rgba(75, 207, 244, 0.256);
   display: flex;
   flex-direction: row;
-  
- justify-content: center;
-
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1em;
 }
-.section3 button{
+
+.section3 button {
   background-color: rgb(104, 222, 14);
   font-family: 'Rubik Puddle', cursive;
-  font-size: larger;
+  font-size: 1rem;
   font-weight: bolder;
-  padding: 2%;
-  margin: 2%;
-  width: 30%;
+  padding: 0.75em 1.5em;
   border-radius: 5px;
-  border-color: rgba(240, 248, 255, 0.037);
-  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.694) ,inset 2px 2px 10px rgba(0, 0, 0, 0.532);
+  border: none;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.694), inset 2px 2px 10px rgba(0, 0, 0, 0.532);
+  width: 80%;
+  max-width: 250px;
 }
+
+/* Footer */
 .footer {
   background-color: rgba(144, 228, 53, 0.356);
-  
   padding: 1em 2em;
   text-align: center;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2), inset 0 2px 5px rgba(255, 255, 255, 0.3);
-  
 }
 
 .back-button {
@@ -67,7 +83,7 @@ box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.747) ,inset 2px 2px 10px rgba(0, 0, 0, 
   border: none;
   border-radius: 25px;
   font-family: 'Rubik Puddle', cursive;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
@@ -85,4 +101,44 @@ box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.747) ,inset 2px 2px 10px rgba(0, 0, 0, 
   font-family: 'Space Grotesk', sans-serif;
 }
 
+/* 🔁 MEDIA QUERIES FOR RESPONSIVENESS */
+@media (max-width: 768px) {
+  .heading {
+    padding: 1em;
+  }
 
+  .Topiccontainer {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1em;
+  }
+
+  .heading #header {
+    font-size: 2rem;
+  }
+
+  .section3 button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading #header {
+    font-size: 1.6rem;
+  }
+
+  .heading h2 {
+    font-size: 1.1rem;
+  }
+
+  .section3 {
+    padding: 0.5em;
+    gap: 0.5em;
+  }
+
+  .section3 button {
+    font-size: 0.9rem;
+    padding: 0.5em;
+  }
+}

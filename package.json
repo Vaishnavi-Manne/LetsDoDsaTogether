@@ -14,13 +14,22 @@
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
     "@fortawesome/free-solid-svg-icons": "^7.0.0",
     "@fortawesome/react-fontawesome": "^0.2.3",
+    "@reduxjs/toolkit": "^2.8.2",
+    "brace": "^0.11.1",
+    "chart.js": "^4.5.0",
+    "d3": "^7.9.0",
     "framer-motion": "^12.23.7",
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
+    "react-ace": "^14.0.1",
+    "react-chartjs-2": "^5.3.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.7.1",
-    "sonner": "^2.0.6"
+    "screenfull": "^6.0.2",
+    "sonner": "^2.0.6",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

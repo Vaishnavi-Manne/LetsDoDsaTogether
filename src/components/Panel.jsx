@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import "./Panel.css";
 const Panel = () => {
 
@@ -108,7 +109,11 @@ const Panel = () => {
     </div>
 
     <div className="section3  ">
-      <button className=" border px-4 py-2 ">Roadmap</button>
+      <button>
+      <Link to="/roadmap">
+         Roadmap
+      </Link>
+      </button>
 
       <button className=" border px-4 py-2 " id="B2">
         Discord Channels
