@@ -5,11 +5,19 @@ const Panel = () => {
 
   const { level } = useParams();
   return (
-  <div className="w-screen min-h-screen pt-20 " id="container">
+  <div className="w-screen min-h-screen pt-20 panel-container" id="container">
     <div className="heading">
+      <button
+        // onClick={() => setView('home')}
+        onClick={() => window.history.back()}
+        className="back-button"
+      >
+        ← Back
+      </button>
       <h2 className="text-xl font-semibold " id="header">
         🌱{level} Topics
       </h2>
+      </div>
       <div className="Topiccontainer">
         <div className="topic1">
           <div className="topic">
@@ -106,7 +114,6 @@ const Panel = () => {
           </div>
         </div>
       </div>
-    </div>
 
     <div className="section3  ">
       <button>
@@ -123,16 +130,6 @@ const Panel = () => {
         Online + Social Media Resources
       </button>
     </div>
-    <footer className="footer">
-      <button
-        // onClick={() => setView('home')}
-        onClick={() => window.history.back()}
-        className="back-button"
-      >
-        ← Back
-      </button>
-      <p className="footer-text">Made with ❤️ for aspiring developers</p>
-    </footer>
   </div>
   )
 };
