@@ -9,7 +9,7 @@ const Home = ({ setView }) => {
     toast.success(`Master the ${level} level questions with our comprehensive guide!`);
   };
   return (
-    <div className="home-container mt-10">
+    <div className="home-container">
       {/* ───────── Hero ───────── */}
        {/* <Header /> */}
       <header className="home-header">
