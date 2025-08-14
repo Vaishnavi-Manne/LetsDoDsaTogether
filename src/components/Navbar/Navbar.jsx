@@ -52,13 +52,9 @@ const Navbar = () => {
                 aria-hidden="true"
               />
             </Link>
-            <a
-              href="about"
-              onClick={() => {
-                if (true) {
-                  navigate("/about");
-                }
-              }}
+            <Link
+              to="/about"
+             
               className="group relative inline-block text-black dark:text-purple-500 hover:text-purple-700 dark:hover:text-purple-700 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-sm transform hover:scale-105"
             >
               <span className="flex items-center font-extrabold gap-2">
@@ -71,14 +67,10 @@ const Navbar = () => {
                             transition-all duration-500 group-hover:w-full group-hover:left-0"
                 aria-hidden="true"
               />
-            </a>
-            <a
-              href="Beginner"
-              onClick={() => {
-                if (true) {
-                  navigate("/Beginner");
-                }
-              }}
+            </Link>
+            <Link
+              to="/Beginner"
+              
               className="group relative inline-block text-black dark:text-purple-500 hover:text-purple-700 dark:hover:text-purple-700 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-sm transform hover:scale-105"
             >
               <span className="flex items-center font-extrabold gap-2">
@@ -91,14 +83,10 @@ const Navbar = () => {
                             transition-all duration-500 group-hover:w-full group-hover:left-0"
                 aria-hidden="true"
               />
-            </a>
-            <a
-              href="Advance"
-              onClick={() => {
-                if (true) {
-                  navigate("/Advance");
-                }
-              }}
+            </Link>
+            <Link
+              to="/Advance"
+              
               className="group relative inline-block text-black dark:text-purple-500 hover:text-purple-700 dark:hover:text-purple-700 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-sm transform hover:scale-105"
             >
               <span className="flex items-center font-extrabold gap-2">
@@ -111,14 +99,10 @@ const Navbar = () => {
                             transition-all duration-500 group-hover:w-full group-hover:left-0"
                 aria-hidden="true"
               />
-            </a>
-            <a
-              href="All-in-on"
-              onClick={() => {
-                if (true) {
-                  navigate("/All-in-one");
-                }
-              }}
+            </Link>
+            <Link
+              to="/All-in-on"
+             
               className="group relative inline-block text-black dark:text-purple-500 hover:text-purple-700 dark:hover:text-purple-700 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-sm transform hover:scale-105"
             >
               <span className="flex items-center font-extrabold gap-2">
@@ -131,14 +115,10 @@ const Navbar = () => {
                         transition-all duration-500 group-hover:w-full group-hover:left-0"
                 aria-hidden="true"
               />
-            </a>
-            <a
-              href="visualizer"
-              onClick={() => {
-                if (true) {
-                  navigate("/visualizer");
-                }
-              }}
+            </Link>
+            <Link
+              to="/visualizer"
+              
               className="group relative inline-block text-black dark:text-purple-500 hover:text-purple-700 dark:hover:text-purple-700 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-sm transform hover:scale-105"
             >
               <span className="flex items-center font-extrabold gap-2">
@@ -151,14 +131,10 @@ const Navbar = () => {
                             transition-all duration-500 group-hover:w-full group-hover:left-0"
                 aria-hidden="true"
               />
-            </a>
-            <a
-              href="contact"
-              onClick={() => {
-                if (true) {
-                  navigate("/contact");
-                }
-              }}
+            </Link>
+            <Link
+              to="/contact"
+              
               className="group relative inline-block text-black dark:text-purple-500 hover:text-purple-700 dark:hover:text-purple-700 font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-sm transform hover:scale-105"
             >
               <span className="flex items-center font-extrabold gap-2">
@@ -171,7 +147,7 @@ const Navbar = () => {
                             transition-all duration-500 group-hover:w-full group-hover:left-0"
                 aria-hidden="true"
               />
-            </a>
+            </Link>
           </div>
           <div className="hidden lg:flex items-center space-x-4 flex-shrink-0">
             <Link
@@ -273,14 +249,9 @@ const Navbar = () => {
                   Home
                 </span>
               </Link>
-              <a
-                href="#about"
-                onClick={() => {
-                  if (true) {
-                    navigate("/#about");
-                  }
-                  closeMobileMenu();
-                }}
+              <Link
+                to="/about"
+                
                 className="block px-3 py-2 text-white hover:bg-purple-600 dark:hover:bg-gray-700 hover:text-purple-100 dark:hover:text-gray-100 rounded-md transition-colors duration-200 text-lg font-medium"
               >
                 <span className="flex items-center font-extrabold gap-2">
@@ -302,37 +273,26 @@ const Navbar = () => {
                   <LiaWpbeginner />
                   Beginner
                 </span>
-              </a>
-              <a
-                href="#Advance"
-                onClick={() => {
-                  if (true) {
-                    navigate("/#Advance");
-                  }
-                  closeMobileMenu();
-                }}
+              </Link>
+              <Link
+                to="/Advance"
+               
                 className="block px-3 py-2 text-white hover:bg-purple-600 dark:hover:bg-gray-700 hover:text-purple-100 dark:hover:text-gray-100 rounded-md transition-colors duration-200 text-lg font-medium"
               >
                 <span className="flex items-center font-extrabold gap-2">
                   <PiNumberSquareThreeBold />
                   Advance
                 </span>
-              </a>
-              <a
-                href="#All-in-one"
-                onClick={() => {
-                  if (true) {
-                    navigate("/#All-in-one");
-                  }
-                  closeMobileMenu();
-                }}
+              </Link>
+              <Link
+                to="/All-in-one"
                 className="block px-3 py-2 text-white hover:bg-purple-600 dark:hover:bg-gray-700 hover:text-purple-100 dark:hover:text-gray-100 rounded-md transition-colors duration-200 text-lg font-medium"
               >
                 <span className="flex items-center font-extrabold gap-2">
                   <PiIntersectThreeBold />
                   All-in-one
                 </span>
-              </a>
+              </Link>
               <Link
                 to="/visualizer"
                 onClick={closeMobileMenu}
