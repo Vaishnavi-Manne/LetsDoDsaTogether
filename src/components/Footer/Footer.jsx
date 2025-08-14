@@ -3,7 +3,7 @@ import { CgDetailsMore } from "react-icons/cg";
 const Footer = () => {
   return (
     <div>
-      <footer className="site-footer relative transition-all duration-300 bg-gradient-to-r dark:from-slate-800 dark:to-indigo-900 from-blue-500 to-cyan-400">
+      <footer className="site-footer">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-20" />
 
