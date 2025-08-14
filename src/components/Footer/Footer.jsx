@@ -1,210 +1,70 @@
-import "../Home.css";
 import { Link } from 'react-router-dom';
+import { FaGithub, FaLinkedin, FaTwitter, FaDiscord } from 'react-icons/fa';
+import { IoMdHome } from "react-icons/io";
 import { CgDetailsMore } from "react-icons/cg";
+import { LiaWpbeginner } from "react-icons/lia";
+import { PiIntersectThreeBold } from "react-icons/pi";
+import { MdContactMail } from "react-icons/md";
+import { FaLocationDot, FaPhone } from "react-icons/fa6";
+import { IoIosMail } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <div>
-      <footer className="site-footer">
-        <div className="footer-content">
-          <div className="footer-main">
-            <div className="footer-brand">
-              <h3 className="brand-title">Let&apos;s Do DSA</h3>
-              <p className="brand-tagline">Master algorithms, ace interviews</p>
-            </div>
-
-            <div className="footer-navigation">
-              <h4>Quick Links</h4>
-              <ul className="footer-links">
-                <li>
-                  <Link to="/">
-                    <i className="fas fa-home" /> Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/Beginner">
-                    <i className="fas fa-play-circle" /> Beginner
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/Advanced">
-                    <i className="fas fa-rocket" /> Advanced
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact">
-                    <i className="fas fa-envelope" /> Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="footer-social">
-              <h4>Connect</h4>
-              <div className="social-links">
-                <a href="#" aria-label="GitHub">
-                  <i className="fab fa-github" />
-                </a>
-                <a href="#" aria-label="LinkedIn">
-                  <i className="fab fa-linkedin" />
-                </a>
-                <a href="#" aria-label="Twitter">
-                  <i className="fab fa-twitter" />
-                </a>
-                <a href="#" aria-label="Discord">
-                  <i className="fab fa-discord" />
-                </a>
-              </div>
+    <footer style={{ background: 'linear-gradient(90deg, #4b0082, #8a2be2)' }} className="text-white pt-12 pb-8">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Left Section */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold">Let's Do DSA.</h3>
+            <p className="text-gray-300">
+              Master algorithms, ace interviews. Join our community to enhance your coding skills and prepare for technical interviews with confidence.
+            </p>
+            <p className="text-gray-300">
+              Join us in mastering data structures and algorithms, and take your coding skills to the next level!
+            </p>
+            <h4 className="text-lg font-semibold pt-4">Connect</h4>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-300 hover:text-white"><FaGithub size={24} /></a>
+              <a href="#" className="text-gray-300 hover:text-white"><FaLinkedin size={24} /></a>
+              <a href="#" className="text-gray-300 hover:text-white"><FaTwitter size={24} /></a>
+              <a href="#" className="text-gray-300 hover:text-white"><FaDiscord size={24} /></a>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="text-lg font-semibold border-b border-gray-600 pb-2 text-center">
-              Quick Links
-            </h4>
-            <nav className="flex flex-col space-y-3 items-left">
-              {[
-                { name: "Home", path: "/", icon: <i className="fas fa-home" /> },
-                { name: "About", path: "/about", icon: <CgDetailsMore className="inline" /> },
-                { name: "Beginner", path: "/Beginner", icon: <i className="fas fa-play-circle" /> },
-                { name: "Advanced", path: "/Advance", icon: <i className="fas fa-rocket" /> },
-                { name: "Contact", path: "/contact", icon: <i className="fas fa-envelope" /> },
-              ].map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className="hover:text-blue-300 transition-all duration-300 text-sm flex items-center group"
-                >
-                  <span className="w-4 flex justify-center">
-                    <span className="w-2 h-2 bg-blue-700 rounded-full group-hover:scale-150 transition-transform"></span>
-                  </span>
-                  <span className="ml-3">{link.icon} {link.name}</span>
-                </Link>
-              ))}
-            </nav>
+          {/* Middle Section */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold">Quick Links</h4>
+            <ul className="space-y-2">
+              <li><Link to="/" className="flex items-center text-gray-300 hover:text-white"><span className="bg-blue-500 p-1 rounded-full mr-2 inline-block"><IoMdHome /></span> Home</Link></li>
+              <li><Link to="/about" className="flex items-center text-gray-300 hover:text-white"><span className="bg-blue-500 p-1 rounded-full mr-2 inline-block"><CgDetailsMore /></span> About</Link></li>
+              <li><Link to="/Beginner" className="flex items-center text-gray-300 hover:text-white"><span className="bg-blue-500 p-1 rounded-full mr-2 inline-block"><LiaWpbeginner /></span> Beginner</Link></li>
+              <li><Link to="/Advance" className="flex items-center text-gray-300 hover:text-white"><span className="bg-blue-500 p-1 rounded-full mr-2 inline-block"><PiIntersectThreeBold /></span> Advanced</Link></li>
+              <li><Link to="/contact" className="flex items-center text-gray-300 hover:text-white"><span className="bg-blue-500 p-1 rounded-full mr-2 inline-block"><MdContactMail /></span> Contact</Link></li>
+            </ul>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="text-lg font-semibold border-b border-gray-600 pb-2 text-center">
-              Contact Info
-            </h4>
-            <div className="space-y-4 flex flex-col justify-center items-left">
-              <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm hover:underline block">
-                    123 Street Name
-                    <br />
-                    West Bengal
-                    <br />
-                    India
-                    <br />
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm">+91 12345 67890</p>
-                  <p className="text-sm">Mon-Fri 9AM-6PM</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm py-2">letsdodsa@gmail.com</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Section */}
-          <div className="border-t border-gray-700 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0">
-              <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-                <p className="text-sm">
-                  © 2025 Let's Do DSA. All rights reserved.
-                </p>
-                <div className="flex space-x-4 text-sm">
-                  <a href="#" className="hover:text-pink-300 transition-colors">
-                    Privacy Policy
-                  </a>
-                  <a href="#" className="hover:text-pink-300 transition-colors">
-                    Terms of Service
-                  </a>
-                  <a href="#" className="hover:text-pink-300 transition-colors">
-                    Feedback
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-center space-x-2 text-sm mt-4">
-              <span>Made with</span>
-              <svg
-                className="w-4 h-4 text-red-500"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-              </svg>
-              <p>
-                for <span className="text-cyan-400"> aspiring developers</span>
-              </p>
+          {/* Right Section */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold">Contact Info</h4>
+            <div className="space-y-4 text-gray-300">
+              <div className="flex items-start"><span className="bg-blue-500 p-2 rounded-full mr-3 inline-block"><FaLocationDot /></span> 123 Street Name<br/>West Bengal<br/>India</div>
+              <div className="flex items-center"><span className="bg-blue-500 p-2 rounded-full mr-3 inline-block"><FaPhone /></span> <div>+91 12345 67890<br/>Mon-Fri 9AM-6PM</div></div>
+              <div className="flex items-center"><span className="bg-blue-500 p-2 rounded-full mr-3 inline-block"><IoIosMail /></span> letsdodsa@gmail.com</div>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+
+        <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+          <p>© 2025 Let's Do DSA. All rights reserved.</p>
+          <div className="flex space-x-4">
+            <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white">Terms of Service</Link>
+            <Link to="/feedback" className="hover:text-white">Feedback</Link>
+          </div>
+          <p>Made with <span className="text-red-500">❤</span> for <a href="#" className="text-cyan-400 hover:text-cyan-300">aspiring developers</a></p>
+        </div>
+      </div>
+    </footer>
   );
 };
 

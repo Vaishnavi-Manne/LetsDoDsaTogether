@@ -2,14 +2,12 @@ import { useState } from "react";
 import { IoMdHome } from "react-icons/io";
 import { CgDetailsMore } from "react-icons/cg";
 import { PiNumberSquareThreeBold, PiIntersectThreeBold } from "react-icons/pi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { LiaWpbeginner } from "react-icons/lia";
 import { Contact, Eye } from "lucide-react";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -251,22 +249,17 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/about"
-                
+                onClick={closeMobileMenu}
                 className="block px-3 py-2 text-white hover:bg-purple-600 dark:hover:bg-gray-700 hover:text-purple-100 dark:hover:text-gray-100 rounded-md transition-colors duration-200 text-lg font-medium"
               >
                 <span className="flex items-center font-extrabold gap-2">
                   <CgDetailsMore />
                   About
                 </span>
-              </a>
-              <a
-                href="#Beginner"
-                onClick={() => {
-                  if (true) {
-                    navigate("/#Beginner");
-                  }
-                  closeMobileMenu();
-                }}
+              </Link>
+              <Link
+                to="/Beginner"
+                onClick={closeMobileMenu}
                 className="block px-3 py-2 text-white hover:bg-purple-600 dark:hover:bg-gray-700 hover:text-purple-100 dark:hover:text-gray-100 rounded-md transition-colors duration-200 text-lg font-medium"
               >
                 <span className="flex items-center font-extrabold gap-2">
@@ -276,7 +269,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/Advance"
-               
+                onClick={closeMobileMenu}
                 className="block px-3 py-2 text-white hover:bg-purple-600 dark:hover:bg-gray-700 hover:text-purple-100 dark:hover:text-gray-100 rounded-md transition-colors duration-200 text-lg font-medium"
               >
                 <span className="flex items-center font-extrabold gap-2">
@@ -286,6 +279,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/All-in-one"
+                onClick={closeMobileMenu}
                 className="block px-3 py-2 text-white hover:bg-purple-600 dark:hover:bg-gray-700 hover:text-purple-100 dark:hover:text-gray-100 rounded-md transition-colors duration-200 text-lg font-medium"
               >
                 <span className="flex items-center font-extrabold gap-2">
