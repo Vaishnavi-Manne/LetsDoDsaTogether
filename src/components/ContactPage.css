@@ -1,7 +1,8 @@
 .contact-page {
   min-height: 100vh;
   background: #f8fafc;
-  padding: 20px;
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, #e0f2fe, #cfe0fc, #dbeafe);
   font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -44,7 +45,7 @@
 }
 
 .tab-btn {
-  background: #e2e8f0;
+  background: #ffffff;
   color: #64748b;
   border: none;
   padding: 12px 24px;

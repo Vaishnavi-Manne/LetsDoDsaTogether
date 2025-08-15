@@ -92,7 +92,7 @@ const AlgorithmVisualizer = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-900 dark:to-gray-800 pt-20">
+    <div className="min-h-screen bg-gradient-to-b from-[#e0f2fe] via-[#cfe0fc] to-[#dbeafe] pt-20">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <motion.div

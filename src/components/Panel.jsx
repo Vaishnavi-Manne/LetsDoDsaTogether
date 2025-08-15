@@ -1,14 +1,16 @@
 import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import "./Panel.css";
 const Panel = () => {
 
   const { level } = useParams();
   return (
-  <div className="w-screen min-h-screen pt-20 " id="container">
+  <div className="w-screen min-h-screen pt-20 panel-container" id="container">
     <div className="heading">
       <h2 className="text-xl font-semibold mt-8" id="header">
         🌱{level} Topics
       </h2>
+      </div>
       <div className="Topiccontainer">
         <div className="topic1">
           <div className="topic">
@@ -105,10 +107,13 @@ const Panel = () => {
           </div>
         </div>
       </div>
-    </div>
 
     <div className="section3  ">
-      <button className=" border px-4 py-2 ">Roadmap</button>
+      <button>
+      <Link to="/roadmap">
+         Roadmap
+      </Link>
+      </button>
 
       <button className=" border px-4 py-2 " id="B2">
         Discord Channels
@@ -118,16 +123,6 @@ const Panel = () => {
         Online + Social Media Resources
       </button>
     </div>
-    <footer className="footer">
-      <button
-        // onClick={() => setView('home')}
-        onClick={() => window.history.back()}
-        className="back-button"
-      >
-        ← Back
-      </button>
-      <p className="footer-text">Made with ❤️ for aspiring developers</p>
-    </footer>
   </div>
   )
 };
