@@ -6,7 +6,7 @@ const Panel = () => {
   return (
   <div className="w-screen min-h-screen pt-20 " id="container">
     <div className="heading">
-      <h2 className="text-xl font-semibold " id="header">
+      <h2 className="text-xl font-semibold mt-8" id="header">
         🌱{level} Topics
       </h2>
       <div className="Topiccontainer">
