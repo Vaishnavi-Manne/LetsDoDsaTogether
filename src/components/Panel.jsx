@@ -7,14 +7,7 @@ const Panel = () => {
   return (
   <div className="w-screen min-h-screen pt-20 panel-container" id="container">
     <div className="heading">
-      <button
-        // onClick={() => setView('home')}
-        onClick={() => window.history.back()}
-        className="back-button"
-      >
-        ← Back
-      </button>
-      <h2 className="text-xl font-semibold " id="header">
+      <h2 className="text-xl font-semibold mt-8" id="header">
         🌱{level} Topics
       </h2>
       </div>

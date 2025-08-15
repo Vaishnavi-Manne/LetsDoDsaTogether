@@ -19,8 +19,8 @@ const Aboutpage = () => {
   return (
     <div id="about" className="about bg-gradient-to-b from-[#e0f2fe] via-[#cfe0fc] to-[#dbeafe] font-sans pt-10">
       <div className="container mx-auto px-4 py-8 md:py-12">
-        <header className="text-center mt-5 mb-10 md:mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-700 dark:text-indigo-400 mb-4">
+        <header className="text-center mb-10 md:mb-16">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-700 dark:text-indigo-400 mb-4 mt-8">
             Lets's Do DSA Together
           </h1>
           <p className="about text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
