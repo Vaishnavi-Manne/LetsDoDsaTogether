@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './ContactPage.css';
 
-const ContactPage = ({ setView }) => {
+const ContactPage = () => {
   const [activeTab, setActiveTab] = useState('contact');
   const [loading, setLoading] = useState(false); // Loader state
   const [formData, setFormData] = useState({
