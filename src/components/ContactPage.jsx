@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
-import './ContactPage.css';
+import emailjs from '@emailjs/browser'; // Import emailjs
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './ContactPage.css';
 
 const ContactPage = ({ setView }) => {
   const [activeTab, setActiveTab] = useState('contact');
+  const [loading, setLoading] = useState(false); // Loader state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,9 +24,37 @@ const ContactPage = ({ setView }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setFormData({ name: '', email: '', message: '' });
-    alert('Message sent successfully!');
+    setLoading(true); // show loader
+
+    // EmailJS integration
+    emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      },
+      import.meta.env.VITE_EMAILJS_USER_ID,
+    ).then(() => {
+      toast.success('Message sent successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        pauseOnHover: true,
+      });
+      setFormData({ name: '', email: '', message: '' });
+    })
+      .catch((error) => {
+        toast.error('Failed to send message, please try again later.', {
+          position: "top-right",
+          autoClose: 5000,
+          pauseOnHover: true,
+        });
+        console.error(error.text);
+      })
+      .finally(() => {
+        setLoading(false); // hide loader
+      });
   };
 
   const faqData = [
@@ -56,24 +88,23 @@ const ContactPage = ({ setView }) => {
     <div className="contact-page pt-28">
       {/* Header with back button */}
       <div className="contact-header">
-        <Link to={"/"}>
-        <button className="back-button"
-         >
-          ← Back to Home
-        </button>
+        <Link to={'/'}>
+          <button className="back-button">
+            ← Back to Home
+          </button>
         </Link>
         <h1>Contact & FAQ</h1>
       </div>
 
       {/* Tab Navigation */}
       <div className="tab-navigation">
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'contact' ? 'active' : ''}`}
           onClick={() => setActiveTab('contact')}
         >
           Contact Us
         </button>
-        <button 
+        <button
           className={`tab-btn ${activeTab === 'faq' ? 'active' : ''}`}
           onClick={() => setActiveTab('faq')}
         >
@@ -89,7 +120,7 @@ const ContactPage = ({ setView }) => {
               <h2>Get in Touch</h2>
               <p>Have questions about DSA? Need help with your coding journey? We're here to help!</p>
             </div>
-            
+
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
@@ -103,7 +134,7 @@ const ContactPage = ({ setView }) => {
                   placeholder="Enter your full name"
                 />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="email">Email Address</label>
                 <input
@@ -116,7 +147,7 @@ const ContactPage = ({ setView }) => {
                   placeholder="your.email@example.com"
                 />
               </div>
-              
+
               <div className="form-group">
                 <label htmlFor="message">Message</label>
                 <textarea
@@ -127,12 +158,13 @@ const ContactPage = ({ setView }) => {
                   required
                   placeholder="Tell us about your question or how we can help..."
                   rows="5"
-                ></textarea>
+                />
               </div>
-              
-              <button type="submit" className="submit-btn">
-                Send Message
+
+              <button type="submit" className="submit-btn" disabled={loading}>
+                {loading ? <span className="spinner"></span> : "Send Message"}
               </button>
+
             </form>
           </div>
         )}
@@ -143,7 +175,7 @@ const ContactPage = ({ setView }) => {
               <h2>Frequently Asked Questions</h2>
               <p>Find answers to common questions about our DSA learning platform.</p>
             </div>
-            
+
             <div className="faq-list">
               {faqData.map((faq, index) => (
                 <div key={index} className="faq-item">
@@ -167,6 +199,9 @@ const ContactPage = ({ setView }) => {
           </div>
         )}
       </div>
+
+      {/* React Toastify container */}
+      <ToastContainer />
     </div>
   );
 };
