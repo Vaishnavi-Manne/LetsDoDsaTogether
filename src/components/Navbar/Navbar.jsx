@@ -75,7 +75,7 @@ const Navbar = () => {
             >
               <span className="flex items-center font-extrabold gap-2">
                 <LiaWpbeginner />
-                Begineer
+                Beginner
               </span>
               <span
                 className="absolute left-1/2 -bottom-1 w-0 h-1 bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-500
