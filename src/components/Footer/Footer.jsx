@@ -34,17 +34,41 @@ const Footer = () => {
                 <div className="footer-social">
                   <h4>Connect</h4>
                   <div className="social-links">
-                    <a href="#" aria-label="GitHub">
+                    <a
+                      href="https://github.com/Vaishnavi-Manne"
+                      aria-label="GitHub"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-github" />
+                      <span className="sr-only">GitHub (opens in new tab)</span>
                     </a>
-                    <a href="#" aria-label="LinkedIn">
+                    <a
+                      href="https://www.linkedin.com/in/manne-vaishnavi"
+                      aria-label="LinkedIn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-linkedin" />
+                      <span className="sr-only">LinkedIn (opens in new tab)</span>
                     </a>
-                    <a href="#" aria-label="Twitter">
+                    <a
+                      href="https://twitter.com/"
+                      aria-label="Twitter"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-twitter" />
+                      <span className="sr-only">Twitter (opens in new tab)</span>
                     </a>
-                    <a href="#" aria-label="Discord">
+                    <a
+                      href="https://discord.com/invite/qsebhZeV"
+                      aria-label="Discord"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <i className="fab fa-discord" />
+                      <span className="sr-only">Discord (opens in new tab)</span>
                     </a>
                   </div>
                 </div>
