@@ -5,7 +5,7 @@ const Panel = () => {
 
   const { level } = useParams();
   return (
-  <div className="w-screen min-h-screen pt-20 panel-container" id="container">
+  <div className="panel w-screen min-h-screen pt-20 panel-container" id="container">
     <div className="heading">
       <button
         // onClick={() => setView('home')}
@@ -14,7 +14,7 @@ const Panel = () => {
       >
         ← Back
       </button>
-      <h2 className="text-xl font-semibold " id="header">
+      <h2 className="panel_title text-xl font-semibold " id="header">
         🌱{level} Topics
       </h2>
       </div>

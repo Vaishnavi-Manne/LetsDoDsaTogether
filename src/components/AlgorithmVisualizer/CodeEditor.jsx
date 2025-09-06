@@ -65,8 +65,7 @@ const CodeEditor = ({
     enableLiveAutocompletion: true,
     enableSnippets: true,
     showLineNumbers: true,
-    tabSize: 2,
-    fontSize: 14,
+    tabSize: 2,    fontSize: 14,
     fontFamily: 'Monaco, Menlo, "Ubuntu Mono", monospace',
     wrap: true,
     showPrintMargin: false,
@@ -92,7 +91,7 @@ const CodeEditor = ({
       </div>
 
       {/* Code Editor */}
-      <div className="border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden">
+      <div className="border border-gray-300 dark:border-gray-600 dark:bg-black rounded-lg overflow-hidden">
         <AceEditor
           ref={editorRef}
           mode={aceMode}
@@ -113,11 +112,11 @@ const CodeEditor = ({
 
       {/* Code explanation panel */}
       {readOnly && (
-        <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-          <h4 className="text-sm font-semibold text-gray-800 dark:text-white mb-2">
+        <div className="code_exp mt-4 p-4 bg-gray-50 dark:bg-gray-600 rounded-lg">
+          <h4 className="code_exp_tit text-sm font-semibold dark:text-gray-800 mb-2">
             Code Explanation
           </h4>
-          <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+          <div className="space-y-2 text-sm text-gray-600 dark:bg-gray">
             <p>
               This implementation shows the {language} version of the algorithm.
               The code is synchronized with the visualization to help you understand
