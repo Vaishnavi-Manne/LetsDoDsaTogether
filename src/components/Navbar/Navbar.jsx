@@ -27,12 +27,17 @@ const Navbar = () => {
         <div className="container mx-auto flex justify-between items-center">
           <Link
             to="/"
-            className="flex-shrink-0 text-2xl font-bold text-black dark:text-purple-500
-                                          rounded-lg  ml-2 py-2 transition-all duration-300
-                                          hover:scale-110 hover:text-2xl"
+            className="flex items-center space-x-2 flex-shrink-0 text-4xl font-bold text-blue dark:text-purple-500
+             rounded-lg ml-2 py-2 transition-all duration-300 hover:scale-110 hover:text-2xl"
           >
-            LetsDoDsa
+            <img
+              src="/logo.png"     
+              alt="Logo"
+              className="h-10 w-10 object-contain" 
+            />
+            <span>Let'sDoDSA</span>
           </Link>
+
 
           {/* Middle Section: Main Navigation Links + Central Icon (Hidden on small screens) */}
           <div className="hidden lg:flex flex-grow justify-center items-center space-x-6">
