@@ -92,7 +92,7 @@ const AlgorithmVisualizer = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#e0f2fe] via-[#cfe0fc] to-[#dbeafe] pt-20">
+    <div className="algo_vsl min-h-screen bg-gradient-to-b from-[#e0f2fe] via-[#cfe0fc] to-[#dbeafe] pt-20">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <motion.div
@@ -101,10 +101,10 @@ const AlgorithmVisualizer = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
+          <h1 className="algo_vsl_txt text-4xl md:text-5xl font-bold text-white-800 dark:text-gray-600 mb-4">
             Algorithm Visualizer
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-600 max-w-2xl mx-auto">
             Interactive visualization of algorithms to help you understand how they work step by step
           </p>
         </motion.div>
@@ -194,4 +194,4 @@ const AlgorithmVisualizer = () => {
   );
 };
 
-export default AlgorithmVisualizer;
+export default AlgorithmVisualizer; 

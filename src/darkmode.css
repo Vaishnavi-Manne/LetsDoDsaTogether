@@ -84,6 +84,10 @@ body.dark .how-it-works {
   color: #f3f4f6 !important;
   box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.45) !important;
 }
+
+body.dark .how-it-works p{
+  color: #8e8b8b !important;
+}
 body.dark .cards-section {
   background: transparent !important;
 }
@@ -196,12 +200,58 @@ body.dark .error-message {
 
 /* css for about page */
 body.dark .about{
-  background: #eaeaec !important;
-  color: #070707 !important;
+  background: #23232a !important;
+  color: #ffffff !important;
 }
 body.dark .toggle{
   color: #008b35 !important;
 }
 body.dark .links{
   color: #1723cc !important;
+}
+body.dark .about section{
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.45) !important;
+}
+body.dark .about-des{
+  color: #8e8b8b !important;
+}
+body.dark .about-title{
+  color: #ffffff !important;
+}
+body.dark .about-title-des{
+  color: #a1a1aa !important;
+  background-color: #18181b !important;
+}
+
+body.dark .panel{
+  color: #a1a1aa !important;
+  background: #18181b !important;
+}
+body.dark .Topiccontainer{
+  background: #18181b !important;
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.45) !important;
+}
+body.dark .panel_title{
+  color: #8b8b8b !important;
+  font-weight: bold;
+}
+body.dark .algo_vsl{
+  background: #18181b !important;
+}
+body.dark .container{
+  background: #18181b !important;
+}
+body.dark .space-y-4{
+  background: #18181b !important;
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.45) !important; 
+}
+body.dark .border{
+  background: #18181b !important;
+  color: #8b8b8b !important;
+}
+body.dark .code_exp{
+  background: #18181b !important;
+}
+body.dark .code_exp_tit{
+  color: #757575 !important;
 }
