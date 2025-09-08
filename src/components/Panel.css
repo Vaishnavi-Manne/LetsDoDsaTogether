@@ -56,12 +56,26 @@
   padding: 20px;
   display: flex;
   gap: 6em;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
   background: #f0f4ff;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 3rem;
 }
-
+/* .topic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 1rem 1rem;
+  padding: 1rem 1.5rem;
+  max-width: 70%;
+  flex-direction: column;
+} */
+/* .topic p{
+  text-align: center;
+  padding: 2rem 2rem;
+} */
 .topic h2 {
   font-size: 1.2em;
   margin-bottom: 0.5em;
