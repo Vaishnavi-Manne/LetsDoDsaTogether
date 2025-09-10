@@ -1,24 +1,24 @@
-import emailjs from '@emailjs/browser'; // Import emailjs
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './ContactPage.css';
+import emailjs from "@emailjs/browser"; // Import emailjs
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./ContactPage.css";
 
 const ContactPage = ({ setView }) => {
-  const [activeTab, setActiveTab] = useState('contact');
+  const [activeTab, setActiveTab] = useState("contact");
   const [loading, setLoading] = useState(false); // Loader state
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
   const [activeFaq, setActiveFaq] = useState(null);
 
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -27,25 +27,27 @@ const ContactPage = ({ setView }) => {
     setLoading(true); // show loader
 
     // EmailJS integration
-    emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-      },
-      import.meta.env.VITE_EMAILJS_USER_ID,
-    ).then(() => {
-      toast.success('Message sent successfully!', {
-        position: "top-right",
-        autoClose: 5000,
-        pauseOnHover: true,
-      });
-      setFormData({ name: '', email: '', message: '' });
-    })
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_USER_ID
+      )
+      .then(() => {
+        toast.success("Message sent successfully!", {
+          position: "top-right",
+          autoClose: 5000,
+          pauseOnHover: true,
+        });
+        setFormData({ name: "", email: "", message: "" });
+      })
       .catch((error) => {
-        toast.error('Failed to send message, please try again later.', {
+        toast.error("Failed to send message, please try again later.", {
           position: "top-right",
           autoClose: 5000,
           pauseOnHover: true,
@@ -60,24 +62,29 @@ const ContactPage = ({ setView }) => {
   const faqData = [
     {
       question: "How do I get started with DSA?",
-      answer: "Begin with our Beginner's section to learn fundamental concepts like arrays, linked lists, and basic algorithms. Practice regularly and gradually move to more complex topics."
+      answer:
+        "Begin with our Beginner's section to learn fundamental concepts like arrays, linked lists, and basic algorithms. Practice regularly and gradually move to more complex topics.",
     },
     {
       question: "What's the difference between Beginner and Advanced sections?",
-      answer: "Beginner covers basic data structures and simple algorithms. Advanced includes complex topics like dynamic programming, graph algorithms, and system design concepts."
+      answer:
+        "Beginner covers basic data structures and simple algorithms. Advanced includes complex topics like dynamic programming, graph algorithms, and system design concepts.",
     },
     {
       question: "How long does it take to master DSA?",
-      answer: "It varies by individual, but with consistent practice (1-2 hours daily), you can build a solid foundation in 3-6 months and become proficient in 6-12 months."
+      answer:
+        "It varies by individual, but with consistent practice (1-2 hours daily), you can build a solid foundation in 3-6 months and become proficient in 6-12 months.",
     },
     {
       question: "Do you provide coding practice problems?",
-      answer: "Yes! Each section includes curated practice problems with detailed explanations and multiple solution approaches."
+      answer:
+        "Yes! Each section includes curated practice problems with detailed explanations and multiple solution approaches.",
     },
     {
       question: "Is this suitable for interview preparation?",
-      answer: "Absolutely! Our content is specifically designed to help you ace technical interviews at top tech companies."
-    }
+      answer:
+        "Absolutely! Our content is specifically designed to help you ace technical interviews at top tech companies.",
+    },
   ];
 
   const toggleFaq = (index) => {
@@ -88,25 +95,25 @@ const ContactPage = ({ setView }) => {
     <div className="contact-page pt-28">
       {/* Header with back button */}
       <div className="contact-header">
-        <Link to={'/'}>
-          <button className="back-button">
-            ← Back to Home
-          </button>
+        <Link to={"/"}>
+          <button className="back-button">← Back to Home</button>
         </Link>
+      </div>
+      <div className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-10 text-center">
         <h1>Contact & FAQ</h1>
       </div>
 
       {/* Tab Navigation */}
       <div className="tab-navigation">
         <button
-          className={`tab-btn ${activeTab === 'contact' ? 'active' : ''}`}
-          onClick={() => setActiveTab('contact')}
+          className={`tab-btn ${activeTab === "contact" ? "active" : ""}`}
+          onClick={() => setActiveTab("contact")}
         >
           Contact Us
         </button>
         <button
-          className={`tab-btn ${activeTab === 'faq' ? 'active' : ''}`}
-          onClick={() => setActiveTab('faq')}
+          className={`tab-btn ${activeTab === "faq" ? "active" : ""}`}
+          onClick={() => setActiveTab("faq")}
         >
           FAQ
         </button>
@@ -114,11 +121,14 @@ const ContactPage = ({ setView }) => {
 
       {/* Content */}
       <div className="page-content">
-        {activeTab === 'contact' && (
+        {activeTab === "contact" && (
           <div className="contact-section">
             <div className="contact-intro">
               <h2>Get in Touch</h2>
-              <p>Have questions about DSA? Need help with your coding journey? We're here to help!</p>
+              <p>
+                Have questions about DSA? Need help with your coding journey?
+                We're here to help!
+              </p>
             </div>
 
             <form onSubmit={handleSubmit} className="contact-form">
@@ -164,34 +174,36 @@ const ContactPage = ({ setView }) => {
               <button type="submit" className="submit-btn" disabled={loading}>
                 {loading ? <span className="spinner"></span> : "Send Message"}
               </button>
-
             </form>
           </div>
         )}
 
-        {activeTab === 'faq' && (
+        {activeTab === "faq" && (
           <div className="faq-section">
             <div className="faq-intro">
               <h2>Frequently Asked Questions</h2>
-              <p>Find answers to common questions about our DSA learning platform.</p>
+              <p>
+                Find answers to common questions about our DSA learning
+                platform.
+              </p>
             </div>
 
             <div className="faq-list">
               {faqData.map((faq, index) => (
                 <div key={index} className="faq-item">
                   <button
-                    className={`faq-question ${activeFaq === index ? 'active' : ''}`}
+                    className={`faq-question ${
+                      activeFaq === index ? "active" : ""
+                    }`}
                     onClick={() => toggleFaq(index)}
                   >
                     {faq.question}
                     <span className="faq-icon">
-                      {activeFaq === index ? '−' : '+'}
+                      {activeFaq === index ? "−" : "+"}
                     </span>
                   </button>
                   {activeFaq === index && (
-                    <div className="faq-answer">
-                      {faq.answer}
-                    </div>
+                    <div className="faq-answer">{faq.answer}</div>
                   )}
                 </div>
               ))}
