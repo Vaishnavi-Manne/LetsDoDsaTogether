@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Mind Map Flowchart with GFG Links</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+    }
+
+    button {
+      margin: 16px;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      background: #4f46e5;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: #4338ca;
+    }
+
+    svg {
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      background: white;
+    }
+
+    .node circle {
+      fill: #4f46e5;
+      stroke: #fff;
+      stroke-width: 2px;
+      cursor: pointer;
+    }
+
+    .node text {
+      font-size: 14px;
+      font-weight: 500;
+      fill: #333;
+      cursor: pointer;
+    }
+
+    .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="drawTree()">🌐 Show Learning Flowchart</button>
+  <div id="chart"></div>
+
+  <script>
+    // Concept-to-GFG mapping
+    const gfgLinks = {
+      "Arrays": "https://www.geeksforgeeks.org/array-data-structure/",
+      "Strings": "https://www.geeksforgeeks.org/string-data-structure/",
+      "Linked List": "https://www.geeksforgeeks.org/data-structures/linked-list/",
+      "Trees": "https://www.geeksforgeeks.org/binary-tree-data-structure/",
+      "Graphs": "https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/",
+      "Sorting": "https://www.geeksforgeeks.org/sorting-algorithms/",
+      "Searching": "https://www.geeksforgeeks.org/searching-algorithms/",
+      "DP & Greedy": "https://www.geeksforgeeks.org/dynamic-programming/",
+      "HTML": "https://www.geeksforgeeks.org/html-tutorial/",
+      "CSS": "https://www.geeksforgeeks.org/css-tutorial/",
+      "JavaScript": "https://www.geeksforgeeks.org/javascript/",
+      "TypeScript": "https://www.geeksforgeeks.org/introduction-to-typescript/",
+      "React": "https://www.geeksforgeeks.org/reactjs-tutorials/",
+      "Vue": "https://www.geeksforgeeks.org/vue-js/",
+      "Angular": "https://www.geeksforgeeks.org/angularjs-tutorials/",
+      "Node.js": "https://www.geeksforgeeks.org/nodejs/",
+      "Express": "https://www.geeksforgeeks.org/express-js/",
+      "Django": "https://www.geeksforgeeks.org/django-tutorial/",
+      "Spring": "https://www.geeksforgeeks.org/spring-tutorial/",
+      "MySQL": "https://www.geeksforgeeks.org/mysql-tutorial/",
+      "MongoDB": "https://www.geeksforgeeks.org/mongodb/",
+      "PostgreSQL": "https://www.geeksforgeeks.org/postgresql-tutorial/",
+      "Redis": "https://www.geeksforgeeks.org/redis-tutorial/",
+      "Git": "https://www.geeksforgeeks.org/git-and-github-tutorials/",
+      "Docker": "https://www.geeksforgeeks.org/docker-tutorial/",
+      "Kubernetes": "https://www.geeksforgeeks.org/kubernetes-introduction-and-tutorials/",
+      "CI/CD": "https://www.geeksforgeeks.org/what-is-ci-cd/",
+      "Solidity": "https://www.geeksforgeeks.org/introduction-to-solidity/",
+      "Rust": "https://www.geeksforgeeks.org/rust-programming-language/",
+      "Go": "https://www.geeksforgeeks.org/go-programming-language/",
+      "Cryptography": "https://www.geeksforgeeks.org/cryptography-tutorial/",
+      "Ethereum": "https://www.geeksforgeeks.org/what-is-ethereum/",
+      "Solana": "https://www.geeksforgeeks.org/introduction-to-solana/",
+      "Polkadot": "https://www.geeksforgeeks.org/introduction-to-polkadot/",
+      "PoW": "https://www.geeksforgeeks.org/proof-of-work-vs-proof-of-stake/",
+      "PoS": "https://www.geeksforgeeks.org/proof-of-stake-vs-proof-of-work/",
+      "MetaMask": "https://www.geeksforgeeks.org/what-is-metamask/",
+      "Truffle": "https://www.geeksforgeeks.org/introduction-to-truffle/",
+      "Hardhat": "https://www.geeksforgeeks.org/introduction-to-hardhat/",
+      "ML Basics": "https://www.geeksforgeeks.org/machine-learning/",
+      "CNN": "https://www.geeksforgeeks.org/introduction-to-convolution-neural-network/",
+      "RNN": "https://www.geeksforgeeks.org/introduction-to-recurrent-neural-network/",
+      "Transformers": "https://www.geeksforgeeks.org/transformer-neural-network/",
+      "TensorFlow": "https://www.geeksforgeeks.org/introduction-to-tensorflow/",
+      "PyTorch": "https://www.geeksforgeeks.org/introduction-to-pytorch/",
+      "Keras": "https://www.geeksforgeeks.org/keras/",
+      "GPT": "https://www.geeksforgeeks.org/introduction-to-gpt-3/",
+      "BERT": "https://www.geeksforgeeks.org/bert-explained-state-of-the-art-language-model-for-nlp/",
+      "LLaMA": "https://www.geeksforgeeks.org/llama-language-model-by-meta/",
+      "Stable Diffusion": "https://www.geeksforgeeks.org/introduction-to-stable-diffusion/",
+      "DALL·E": "https://www.geeksforgeeks.org/dalle-openais-text-to-image-generator/"
+    };
+
+    const data = {
+      name: "Learning",
+      children: [
+        {
+          name: "📚 DSA",
+          children: [
+            { name: "Arrays" },
+            { name: "Strings" },
+            { name: "Linked List" },
+            { name: "Trees" },
+            { name: "Graphs" },
+            { name: "Sorting" },
+            { name: "Searching" },
+            { name: "DP & Greedy" }
+          ]
+        },
+        {
+          name: "💻 Web Dev",
+          children: [
+            {
+              name: "Frontend",
+              children: [
+                { name: "HTML" }, { name: "CSS" }, { name: "JavaScript" },
+                { name: "TypeScript" }, { name: "React" }, { name: "Vue" }, { name: "Angular" }
+              ]
+            },
+            {
+              name: "Backend",
+              children: [
+                { name: "Node.js" }, { name: "Express" }, { name: "Django" }, { name: "Spring" }
+              ]
+            },
+            {
+              name: "Databases",
+              children: [
+                { name: "MySQL" }, { name: "MongoDB" }, { name: "PostgreSQL" }, { name: "Redis" }
+              ]
+            },
+            {
+              name: "DevOps",
+              children: [
+                { name: "Git" }, { name: "Docker" }, { name: "Kubernetes" }, { name: "CI/CD" }
+              ]
+            }
+          ]
+        },
+        {
+          name: "⛓ Blockchain",
+          children: [
+            {
+              name: "Smart Contracts",
+              children: [{ name: "Solidity" }, { name: "Rust" }, { name: "Go" }]
+            },
+            { name: "Cryptography" },
+            {
+              name: "Networks",
+              children: [{ name: "Ethereum" }, { name: "Solana" }, { name: "Polkadot" }]
+            },
+            {
+              name: "Consensus",
+              children: [{ name: "PoW" }, { name: "PoS" }]
+            },
+            {
+              name: "Tools",
+              children: [{ name: "MetaMask" }, { name: "Truffle" }, { name: "Hardhat" }]
+            }
+          ]
+        },
+        {
+          name: "🤖 Generative AI",
+          children: [
+            { name: "ML Basics" },
+            {
+              name: "Deep Learning",
+              children: [{ name: "CNN" }, { name: "RNN" }, { name: "Transformers" }]
+            },
+            {
+              name: "Frameworks",
+              children: [{ name: "TensorFlow" }, { name: "PyTorch" }, { name: "Keras" }]
+            },
+            {
+              name: "LLMs",
+              children: [{ name: "GPT" }, { name: "BERT" }, { name: "LLaMA" }]
+            },
+            {
+              name: "Diffusion Models",
+              children: [{ name: "Stable Diffusion" }, { name: "DALL·E" }]
+            }
+          ]
+        }
+      ]
+    };
+
+    function drawTree() {
+      document.getElementById("chart").innerHTML = "";
+      const width = window.innerWidth - 50;
+      const height = window.innerHeight - 100;
+
+      const svg = d3.select("#chart")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .call(d3.zoom().scaleExtent([0.5, 2]).on("zoom", (event) => {
+          g.attr("transform", event.transform);
+        }));
+
+      const g = svg.append("g").attr("transform", "translate(40,40)");
+
+      const root = d3.hierarchy(data);
+      const treeLayout = d3.tree().size([height - 100, width - 200]);
+      treeLayout(root);
+
+      // links
+      g.selectAll(".link")
+        .data(root.links())
+        .enter()
+        .append("path")
+        .attr("class", "link")
+        .attr("d", d3.linkHorizontal().x(d => d.y).y(d => d.x))
+        .attr("stroke-dasharray", function() { return this.getTotalLength(); })
+        .attr("stroke-dashoffset", function() { return this.getTotalLength(); })
+        .transition().duration(1500).attr("stroke-dashoffset", 0);
+
+      // nodes
+      const node = g.selectAll(".node")
+        .data(root.descendants())
+        .enter()
+        .append("g")
+        .attr("class", "node")
+        .attr("transform", d => `translate(${d.y},${d.x})`)
+        .on("click", (event, d) => {
+          const link = gfgLinks[d.data.name];
+          if (link) window.open(link, "_blank");
+        });
+
+      node.append("circle")
+        .attr("r", 0)
+        .transition().duration(800).attr("r", 8);
+
+      node.append("text")
+        .attr("dy", 4)
+        .attr("x", d => d.children ? -12 : 12)
+        .style("text-anchor", d => d.children ? "end" : "start")
+        .text(d => d.data.name)
+        .style("opacity", 0)
+        .transition().duration(1200).style("opacity", 1);
+    }
+  </script>
+</body>
+</html>
