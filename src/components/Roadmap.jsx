@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./Roadmap.css";
 
 const Roadmap = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      offset: 100,
+      once: false,
+      mirror: true,
+    });
+    AOS.refresh();
+  }, []);
+
   return (
-    <div className="roadmap-container">
-      <h1>🚀 DSA Roadmap</h1>
-      <p>Start your journey from basics to advanced topics, one step at a time.</p>
+    <div className="roadmap-container" data-aos="fade-in">
+      <h1 data-aos="fade-down">🚀 DSA Roadmap</h1>
+      <p data-aos="fade-up" data-aos-delay="200">
+        Start your journey from basics to advanced topics, one step at a time.
+      </p>
 
       {/* Section: Arrays */}
-      <div className="roadmap-section">
+      <div className="roadmap-section" data-aos="fade-right" data-aos-delay="300">
         <h2>1. Arrays</h2>
         <ul>
           <li><a href="https://leetcode.com/problems/two-sum/">Two Sum</a></li>
@@ -20,7 +34,7 @@ const Roadmap = () => {
       </div>
 
       {/* Section: Strings */}
-      <div className="roadmap-section">
+      <div className="roadmap-section" data-aos="fade-left" data-aos-delay="400">
         <h2>2. Strings</h2>
         <ul>
           <li><a href="https://leetcode.com/problems/valid-palindrome/">Valid Palindrome</a></li>
@@ -31,7 +45,7 @@ const Roadmap = () => {
       </div>
 
       {/* Section: Hashing */}
-      <div className="roadmap-section">
+      <div className="roadmap-section" data-aos="fade-right" data-aos-delay="300">
         <h2>3. Hashing</h2>
         <ul>
           <li><a href="https://leetcode.com/problems/two-sum/">Two Sum (HashMap)</a></li>
@@ -41,7 +55,7 @@ const Roadmap = () => {
       </div>
 
       {/* Section: Sliding Window */}
-      <div className="roadmap-section">
+      <div className="roadmap-section" data-aos="fade-left" data-aos-delay="400">
         <h2>4. Sliding Window</h2>
         <ul>
           <li><a href="https://leetcode.com/problems/max-consecutive-ones-iii/">Max Consecutive Ones III</a></li>
@@ -51,7 +65,7 @@ const Roadmap = () => {
       </div>
 
       {/* Section: Two Pointers */}
-      <div className="roadmap-section">
+      <div className="roadmap-section" data-aos="fade-right" data-aos-delay="300">
         <h2>5. Two Pointers</h2>
         <ul>
           <li><a href="https://leetcode.com/problems/3sum/">3Sum</a></li>
@@ -61,7 +75,7 @@ const Roadmap = () => {
       </div>
 
       {/* Section: Stack & Queue */}
-      <div className="roadmap-section">
+      <div className="roadmap-section" data-aos="fade-left" data-aos-delay="400">
         <h2>6. Stack & Queue</h2>
         <ul>
           <li><a href="https://leetcode.com/problems/valid-parentheses/">Valid Parentheses</a></li>
@@ -71,7 +85,7 @@ const Roadmap = () => {
       </div>
 
       {/* Section: Trees */}
-      <div className="roadmap-section">
+      <div className="roadmap-section" data-aos="fade-right" data-aos-delay="300">
         <h2>7. Trees</h2>
         <ul>
           <li><a href="https://leetcode.com/problems/invert-binary-tree/">Invert Binary Tree</a></li>
@@ -81,7 +95,7 @@ const Roadmap = () => {
       </div>
 
       {/* Section: Graphs */}
-      <div className="roadmap-section">
+      <div className="roadmap-section" data-aos="fade-left" data-aos-delay="400">
         <h2>8. Graphs</h2>
         <ul>
           <li><a href="https://leetcode.com/problems/number-of-islands/">Number of Islands</a></li>
@@ -91,7 +105,7 @@ const Roadmap = () => {
       </div>
 
       {/* Section: DP */}
-      <div className="roadmap-section">
+      <div className="roadmap-section" data-aos="fade-right" data-aos-delay="300">
         <h2>9. Dynamic Programming</h2>
         <ul>
           <li><a href="https://leetcode.com/problems/climbing-stairs/">Climbing Stairs</a></li>
@@ -101,7 +115,7 @@ const Roadmap = () => {
         </ul>
       </div>
 
-      <button className="back-btn" onClick={() => window.history.back()}>
+      <button className="back-btn" onClick={() => window.history.back()} data-aos="zoom-in">
         ← Back
       </button>
     </div>

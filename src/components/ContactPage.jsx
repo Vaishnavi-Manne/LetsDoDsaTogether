@@ -1,19 +1,28 @@
-import emailjs from "@emailjs/browser"; // Import emailjs
-import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./ContactPage.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ContactPage = ({ setView }) => {
   const [activeTab, setActiveTab] = useState("contact");
-  const [loading, setLoading] = useState(false); // Loader state
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
   const [activeFaq, setActiveFaq] = useState(null);
+
+  useEffect(() => {
+      AOS.init({
+          duration: 1000,
+          once: true,
+      });
+  }, []);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -24,9 +33,8 @@ const ContactPage = ({ setView }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true); // show loader
+    setLoading(true);
 
-    // EmailJS integration
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -55,7 +63,7 @@ const ContactPage = ({ setView }) => {
         console.error(error.text);
       })
       .finally(() => {
-        setLoading(false); // hide loader
+        setLoading(false);
       });
   };
 
@@ -93,18 +101,16 @@ const ContactPage = ({ setView }) => {
 
   return (
     <div className="contact-page pt-28">
-      {/* Header with back button */}
-      <div className="contact-header">
+      <div className="contact-header" data-aos="fade-down">
         <Link to={"/"}>
           <button className="back-button">← Back to Home</button>
         </Link>
       </div>
-      <div className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-10 text-center">
+      <div className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-10 text-center" data-aos="fade-up">
         <h1>Contact & FAQ</h1>
       </div>
 
-      {/* Tab Navigation */}
-      <div className="tab-navigation">
+      <div className="tab-navigation" data-aos="fade-up" data-aos-delay="200">
         <button
           className={`tab-btn ${activeTab === "contact" ? "active" : ""}`}
           onClick={() => setActiveTab("contact")}
@@ -119,10 +125,9 @@ const ContactPage = ({ setView }) => {
         </button>
       </div>
 
-      {/* Content */}
       <div className="page-content">
         {activeTab === "contact" && (
-          <div className="contact-section">
+          <div className="contact-section" data-aos="fade-up" data-aos-delay="400">
             <div className="contact-intro">
               <h2>Get in Touch</h2>
               <p>
@@ -179,7 +184,7 @@ const ContactPage = ({ setView }) => {
         )}
 
         {activeTab === "faq" && (
-          <div className="faq-section">
+          <div className="faq-section" data-aos="fade-up" data-aos-delay="400">
             <div className="faq-intro">
               <h2>Frequently Asked Questions</h2>
               <p>
@@ -190,7 +195,7 @@ const ContactPage = ({ setView }) => {
 
             <div className="faq-list">
               {faqData.map((faq, index) => (
-                <div key={index} className="faq-item">
+                <div key={index} className="faq-item" data-aos="fade-up" data-aos-delay={`${index * 100}`}>
                   <button
                     className={`faq-question ${
                       activeFaq === index ? "active" : ""
@@ -212,7 +217,6 @@ const ContactPage = ({ setView }) => {
         )}
       </div>
 
-      {/* React Toastify container */}
       <ToastContainer />
     </div>
   );

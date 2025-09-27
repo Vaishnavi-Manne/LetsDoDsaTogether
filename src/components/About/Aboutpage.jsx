@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
   Code2,
   Palette,
@@ -12,14 +14,23 @@ import {
 import { allContributors } from "../../constants/lib.js";
 
 const Aboutpage = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleContributors = showAll ? allContributors : allContributors.slice(0, 6);
 
-    const [showAll, setShowAll] = useState(false);
-    const visibleContributors = showAll ? allContributors : allContributors.slice(0, 6);  
+  useEffect(() => {
+    AOS.init({
+        duration: 1000,
+        offset: 100,
+        once: false,
+        mirror: true,
+    });
+    AOS.refresh();
+  }, []);
 
   return (
     <div id="about" className="about bg-gradient-to-b from-[#e0f2fe] via-[#cfe0fc] to-[#dbeafe] font-sans pt-10">
       <div className="container mx-auto px-4 py-8 md:py-12">
-        <header className="text-center mt-5 mb-10 md:mb-16">
+        <header className="text-center mt-5 mb-10 md:mb-16" data-aos="fade-down">
           <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-700 dark:text-indigo-400 mb-4">
             Lets's Do DSA Together
           </h1>
@@ -28,7 +39,7 @@ const Aboutpage = () => {
             endeavor.
           </p>
         </header>
-        <section className="about bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6 md:p-8 mb-8 md:mb-12">
+        <section className="about bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6 md:p-8 mb-8 md:mb-12" data-aos="fade-right">
           <h2 className="about text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center">
             <svg
               className="w-8 h-8 mr-3 text-indigo-600 dark:text-indigo-400"
@@ -61,7 +72,7 @@ const Aboutpage = () => {
         </section>
 
         {/* Tech Stack Section */}
-        <section className="about bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6 md:p-8 mb-8 md:mb-12">
+        <section className="about bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-6 md:p-8 mb-8 md:mb-12" data-aos="fade-left">
           <h2 className="about text-4xl font-extrabold text-gray-800 dark:text-white mb-6 flex items-center gap-3 animate-fade-in">
             <svg
               className="w-9 h-9 text-green-600 dark:text-green-400 animate-bounce-slow"

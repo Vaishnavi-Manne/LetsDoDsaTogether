@@ -1,56 +1,44 @@
-// import { useState } from "react";
+import { useEffect } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AOS from 'aos';
 
+// Component Imports
 import Panel from "./components/Panel";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ContactPage from "./components/ContactPage";
 import Aboutpage from "./components/About/Aboutpage";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AuthPage from "./pages/AuthPage";
 import MainLayout from "./components/MainLayout";
-import HomePage from "./pages/HomePage";
 import { AlgorithmVisualizer } from "./components/AlgorithmVisualizer";
 import Roadmap from "./components/Roadmap";
+import HomePage from "./pages/HomePage";
+import AuthPage from "./pages/AuthPage";
+
 
 const App = () => {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [view, setView] = useState('home');
-  // const [authMode, setAuthMode] = useState('login');
-
-  // auth setup will be done through backened and integrated later using rtk query
-
-  // If user is not logged in, show auth pages
-  // if (!isLoggedIn) {
-  //   return (
-  //     <div className="auth-app">
-  //       <ThemeToggle />
-  //       {authMode === 'login' ? (
-  //         <Login
-  //           setIsLoggedIn={setIsLoggedIn}
-  //           switchToSignup={() => setAuthMode('signup')}
-  //         />
-  //       ) : (
-  //         <Signup
-  //           setIsLoggedIn={setIsLoggedIn}
-  //           switchToLogin={() => setAuthMode('login')}
-  //         />
-  //       )}
-  //     </div>
-  //   );
-  // }
+  // This useEffect hook initializes the AOS library when the App component first loads.
+  // While initialization is also in main.jsx, this ensures it's ready for the router.
+  // It's also a good place to refresh animations if needed on route changes in more complex setups.
+  useEffect(() => {
+    AOS.init({
+        duration: 1000,
+        once: false,
+        mirror: true,
+    });
+    // Optional: Refresh AOS on component mount to recalculate positions
+    AOS.refresh();
+  }, []);
 
   const appRouter = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout />,
+      // The children routes are where the components with actual animations are rendered.
+      // For example, HomePage, Aboutpage, and ContactPage have 'data-aos' attributes.
       children: [
         {
           index: true,
-          element: (
-            <>
-              <HomePage />
-            </>
-          ),
+          element: <HomePage />,
         },
         {
           path: "about",
@@ -86,21 +74,6 @@ const App = () => {
   ]);
   return (
     <>
-      {/* {view !== 'home' && (
-        <div className="navbar-wrapper">
-          <Header setView={setView} />
-        </div>
-      )}
-      <ThemeToggle />
-      <div className="min-h-screen w-screen flex items-center justify-center bg-slate-100">
-        {view === 'home' && <Home setView={setView} />}
-        {view === 'beginner' && <Panel setView={setView} tier="Beginner" />}
-        {view === 'advanced' && <Panel setView={setView} tier="Advanced" />}
-        {view === 'contact' && <ContactPage setView={setView} />}
-        {view === 'about' && <Aboutpage setView={setView} />}
-      </div> */}
-      {/* <Navbar/>
-      <Aboutpage/> */}
       <main>
         <RouterProvider router={appRouter} />
       </main>
