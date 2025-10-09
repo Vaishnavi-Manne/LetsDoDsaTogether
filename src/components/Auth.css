@@ -451,6 +451,7 @@ html {
   cursor: not-allowed;
 }
 
+/* Fix for password toggle buttons */
 .toggle-password {
   position: absolute;
   right: 0.75rem;
@@ -464,10 +465,14 @@ html {
   border-radius: 4px;
   transition: color 0.2s ease;
   flex-shrink: 0;
+  z-index: 20; /* Increased z-index to stay above input */
+  width: auto; /* Ensure proper width */
+  height: auto; /* Ensure proper height */
 }
 
 .toggle-password:hover {
   color: #6b7280;
+  background: rgba(0, 0, 0, 0.05); /* Add subtle background on hover */
 }
 
 .toggle-password:disabled {
@@ -475,10 +480,22 @@ html {
   opacity: 0.5;
 }
 
-.error-message {
-  color: #ef4444;
-  font-size: 0.85rem;
-  margin-top: 0.25rem;
+/* Ensure input has enough padding for the icon */
+.auth-form input {
+  width: 100%;
+  padding: 0.75rem 3rem 0.75rem 2.75rem; /* Increased right padding to 3rem */
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background: white;
+  min-width: 0;
+}
+
+/* Specific fix for password inputs */
+.input-wrapper input[type="password"],
+.input-wrapper input[type="text"] {
+  padding-right: 3rem !important; /* Ensure enough space for eye icon */
 }
 
 /* Password Requirements */
