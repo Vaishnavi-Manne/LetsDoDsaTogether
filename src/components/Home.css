@@ -549,6 +549,285 @@
   }
 }
 
+/* ───────── Problem of the Day Card ───────── */
+.potd-card {
+  background: linear-gradient(135deg, #fff8e1, #fff3c4);
+  backdrop-filter: blur(20px);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 3px solid #fbbf24;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.potd-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+
+.potd-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.potd-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.potd-header h3 {
+  font-size: 1.8rem;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 700;
+}
+
+.difficulty {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.difficulty.beginner {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.difficulty.intermediate {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.difficulty.advanced {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.potd-description {
+  font-size: 1rem;
+  color: #475569;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.problem-link {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.problem-link h4 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.problem-link-text {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.problem-link-text:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+  text-decoration: none;
+}
+
+/* Problem Details */
+.problem-details {
+  margin-bottom: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.problem-title {
+  font-size: 1.4rem;
+  color: #1e293b;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.problem-description {
+  font-size: 1rem;
+  color: #374151;
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+}
+
+.problem-examples h5,
+.problem-constraints h5 {
+  font-size: 1rem;
+  color: #1e293b;
+  margin: 16px 0 8px 0;
+  font-weight: 600;
+}
+
+.problem-examples .example,
+.problem-constraints {
+  margin-bottom: 16px;
+}
+
+.problem-examples pre,
+.problem-constraints pre {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.potd-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.solve-now-btn {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+  text-decoration: none;
+}
+
+.solve-now-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4);
+  text-decoration: none;
+  color: white;
+}
+
+.mark-done-btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
+}
+
+.mark-done-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(34, 197, 94, 0.4);
+}
+
+.mark-done-btn.done {
+  background: #e5e7eb;
+  color: #6b7280;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.mark-done-btn.done:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ───────── Responsive for POTD ───────── */
+@media (max-width: 768px) {
+  .potd-card {
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .potd-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .potd-header h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .potd-card {
+    padding: 20px;
+  }
+
+  .potd-badge {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .potd-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .potd-description {
+    font-size: 0.9rem;
+  }
+
+  .mark-done-btn,
+  .solve-now-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .potd-actions {
+    gap: 12px;
+  }
+}
+
 @media (max-width: 480px) {
   .site-footer {
     padding: 1.5rem 0 0.5rem;
